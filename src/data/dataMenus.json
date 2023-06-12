@@ -1,0 +1,75 @@
+[
+  {
+    "menu_title": "Beranda",
+    "menu_url": "/",
+    "menu_subtitle": [],
+    "menu_target": ""
+  },
+  {
+    "menu_title": "Profil",
+    "menu_url": "/profil",
+    "menu_subtitle": [],
+    "menu_target": ""
+  },
+  {
+    "menu_title": "Layanan",
+    "menu_url": "",
+    "menu_target": "",
+    "menu_subtitle": [
+      {
+        "menu_title": "Layanan Teknis",
+        "menu_url": "/",
+        "menu_target": ""
+      },
+      {
+        "menu_title": "Layanan Pengembangan Teknologi",
+        "menu_url": "/",
+        "menu_target": ""
+      },
+      {
+        "menu_title": "Layanan Inkubasi Bisnis",
+        "menu_url": "/",
+        "menu_target": ""
+      },
+      {
+        "menu_title": "Layanan Pendukung",
+        "menu_url": "/",
+        "menu_target": ""
+      },
+      {
+        "menu_title": "Layanan Oil and Gas",
+        "menu_url": "/",
+        "menu_target": ""
+      },
+      {
+        "menu_title": "Layanan Infografis",
+        "menu_url": "/",
+        "menu_target": ""
+      }
+    ]
+  },
+  {
+    "menu_title": "Event",
+    "menu_url": "/event",
+    "menu_subtitle": [],
+    "menu_target": ""
+  },
+  {
+    "menu_title": "Kontak",
+    "menu_url": "/kontak",
+    "menu_subtitle": [],
+    "menu_target": ""
+  },
+  {
+    "menu_title": "Berita",
+    "menu_url": "/berita",
+    "menu_subtitle": [],
+    "menu_target": ""
+  },
+  {
+    "menu_title": "Ulasan",
+    "menu_url": "https://report.solotechnopark.id",
+    "menu_subtitle": [],
+    "menu_target": "_blank"
+  }
+]

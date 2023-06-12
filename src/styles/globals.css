@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&display=swap");
+
+html {
+  font-family: "Hind", sans-serif;
+}
+
+.container {
+  @apply mx-auto px-5 lg:px-20;
+}
+
+.content-article h2 span {
+  @apply text-xl lg:text-3xl  inline-block my-5;
+}
+
+.content-article ol li {
+  @apply list-decimal  ml-7 my-2;
+}
+
+.content-article ul li {
+  @apply list-disc  ml-14 my-2;
+}
+
+.content-article p {
+  @apply py-3 leading-7;
+}
+
+.bg-set {
+  @apply bg-no-repeat bg-bottom bg-cover;
+}
+
+.head-1 {
+  @apply text-3xl lg:text-5xl font-medium tracking-wide;
+}
+
+.head-2 {
+  @apply text-2xl lg:text-4xl font-medium tracking-wide;
+}
+
+.head-3 {
+  @apply text-xl lg:text-3xl font-medium;
+}
+
+.head-4 {
+  @apply lg:text-xl text-lg font-medium tracking-wide;
+}
+
+.paragraph {
+  @apply lg:text-lg text-gray-600 max-w-xl my-5;
+}
+
+.gradient-to-right {
+  @apply bg-gradient-to-r from-red-600 to-orange-600 text-white;
+}
+
+.bg-header-1,
+.bg-header-2 {
+  @apply bg-no-repeat;
+}
+
+.bg-header-1 {
+  @apply bg-right-top;
+}
+.bg-header-2 {
+  @apply bg-left-top;
+}
+
+.bg-header-gerigi-1 {
+  @apply bg-secondary-gradient-100  bg-no-repeat bg-contain h-full;
+  background-position: left bottom;
+}
+
+.bg-cta {
+  @apply bg-no-repeat bg-cover;
+}
+
+.mitra .swiper-button-next::after {
+  font-size: 1.25rem !important;
+  transform: translateX(14px);
+  background-color: rgb(243, 244, 246);
+  padding: 2rem;
+}
+
+.mitra .swiper-button-prev::after {
+  font-size: 1.25rem !important;
+  transform: translateX(-14px);
+  background-color: rgb(243, 244, 246);
+  padding: 2rem;
+}

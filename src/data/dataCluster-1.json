@@ -1,0 +1,32 @@
+[
+  {
+    "id_cluster": 416252,
+    "foto": "ImageManufaktur",
+    "nama_cluster": "Cluster Manufaktur",
+    "divisi": [
+      "Sektor Mekanik dan Desain Manufaktur",
+      "Sektor Pengelasan (Genaral dan Underwater)",
+      "Sektor Otomasi"
+    ]
+  },
+  {
+    "id_cluster": 553975,
+    "foto": "ImageTechno",
+    "nama_cluster": "Cluster Technopreneurship",
+    "divisi": [
+      "Sektor Teknologi Informasi (ICT)",
+      "Sektor Kewirausahaan (UMKM dan StartUp)",
+      "Sektor Gaming dan e-Sport"
+    ]
+  },
+  {
+    "id_cluster": 645611,
+    "foto": "ImageKreatif",
+    "nama_cluster": "Cluster Industri Kreatif",
+    "divisi": [
+      "Sektor Seni Pertunjukan–Penyiaran",
+      "Sektor Batik – Handicraft",
+      "Sektor Kuliner"
+    ]
+  }
+]
