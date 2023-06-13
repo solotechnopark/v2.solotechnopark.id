@@ -103,7 +103,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
 
       <header className="bg-header-1">
         <Navbar />
-        <div className="container lg:h-[100vh] grid lg:grid-cols-12 pt-32 pb-20">
+        <div className="container lg:h-[100vh] grid lg:grid-cols-12 lg:pt-32 pb-20">
           <div className="flex flex-col items-start justify-center py-5 lg:py-5 lg:col-span-5  order-2 lg:order-1">
             <h1 className="head-1" data-aos="fade-right">
               Kawasan Inovatif dan Berdaya Saing Internasional
@@ -154,7 +154,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
           <div className="container text-center py-20 lg:py-0">
             <aside className="flex justify-center">
               <div className="w-4/5 bg-primary-100 rounded-3xl -translate-y-32 lg:-translate-y-1/2 absolute">
-                <div className="px-20 flex flex-col justify-end items-start">
+                <div className="px-2 lg:px-20 flex flex-col justify-end items-start">
                   <Image
                     className="w-5/6 pt-10"
                     src={KawasanSTP}
@@ -163,7 +163,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
 
                   <span className="lg:absolute right-36 z-0 mb-10">
                     <h2
-                      className="head-3 font-normal text-white italic text-center lg:max-w-sm transform -translate-y-10"
+                      className="head-3 font-normal text-white italic text-center lg:max-w-sm transform lg:-translate-y-10"
                       // data-aos="zoom-in"
                     >
                       Where <strong>Competence Innovation, Technology,</strong>{" "}
@@ -261,7 +261,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
         <section className="bg-gray-100">
           <div className="h-96 lg:h-[672px] bg-purple-200 rounded-t-[3rem] -translate-y-20 overflow-hidden">
             <Image
-              className="w-full object-cover"
+              className="w-full h-full object-cover"
               src={ImageBannerPeopleManufactur}
               width={1440}
               height={670}
@@ -315,7 +315,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:place-items-center lg:items-stretch gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:place-items-center lg:items-stretch lg:gap-10">
               {events ? (
                 events.map((data, i) => (
                   <Event
@@ -349,7 +349,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:place-items-center lg:items-stretch gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:place-items-center lg:items-stretch lg:gap-10">
               {berita.length > 0 ? (
                 berita.map((data, i) => (
                   <Event

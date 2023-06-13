@@ -7,7 +7,7 @@ function SwiperNavButton() {
   const swiper = useSwiper();
 
   return (
-    <div className="flex justify-between items-end w-full gap-5 mt-10 -translate-y-[33rem] absolute z-20">
+    <div className="flex justify-between items-end w-full gap-5 mt-10 -translate-y-[40rem] lg:-translate-y-[33rem] absolute z-20">
       <h2 className="capitalize head-2">
         Kesan Untuk <br /> Solo Technopark
       </h2>

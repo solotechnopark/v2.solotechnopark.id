@@ -33,7 +33,7 @@
 
 // export default MitraSwiper;
 
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -51,13 +51,23 @@ export default function MitraSwiper({ data, index }) {
       <Swiper
         navigation={true}
         modules={[Navigation, Autoplay]}
-        loop={true}
+        // loop={true}
         autoplay={{
           delay: 2000,
-          disableOnInteraction: false,
+          // disableOnInteraction: false,
         }}
         className="mitra"
-        slidesPerView={10}
+        slidesPerView={9}
+        // breakpoints={{
+        //   // Konfigurasi untuk perangkat mobile
+        //   640: {
+        //     slidesPerView: 8,
+        //   },
+        //   // Konfigurasi untuk perangkat desktop
+        //   1024: {
+        //     slidesPerView: 10,
+        //   },
+        // }}
       >
         {data &&
           data.map((val, i) => (
@@ -66,8 +76,8 @@ export default function MitraSwiper({ data, index }) {
                 <Image
                   className="w-20 h-20 object-contain rounded-md"
                   src={val.image}
-                  width={100}
-                  height={100}
+                  width={120}
+                  height={120}
                   alt="mitra"
                 />
               </div>
