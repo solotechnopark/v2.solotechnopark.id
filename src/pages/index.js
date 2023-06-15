@@ -315,7 +315,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:place-items-center lg:items-stretch lg:gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:place-items-center lg:items-stretch">
               {events ? (
                 events.map((data, i) => (
                   <Event
@@ -349,7 +349,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:place-items-center lg:items-stretch lg:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:place-items-center lg:items-stretch">
               {berita.length > 0 ? (
                 berita.map((data, i) => (
                   <Event

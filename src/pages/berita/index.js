@@ -62,11 +62,10 @@ function Berita() {
         <Navbar />
         <section className="mt-36">
           <div className="container pt-10 pb-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-stretch">
               {berita.length > 0 ? (
                 berita.map((data, i) => (
                   <Link href={`berita/${data.slug}`} target="_blank" key={i}>
-                    {console.log(data)}
                     <Event
                       key={i}
                       type={"berita"}

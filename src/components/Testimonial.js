@@ -40,9 +40,10 @@ function Testimonial({ data }) {
             return (
               <SwiperSlide key={i} style={{ paddingTop: "10rem" }}>
                 <Slider
-                  src={data.foto}
+                  src={data.image}
                   title={data.nama}
-                  office={data.divisi}
+                  position={data.divisi}
+                  office={data.kerja}
                   desc={data.pesan}
                 />
               </SwiperSlide>

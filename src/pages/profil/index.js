@@ -4,14 +4,13 @@ import Navbar from "@/components/Navbar";
 import ImageProfile from "@/images/Mas-Yudith.webp";
 import Dinto from "@/images/Dinto.webp";
 import KawasanSTP from "@/images/Kawsan-STP-6.png";
-import BaganWeb from "@/images/Bagan-Web-3-b.png.webp";
+import BaganWeb from "@/images/Bagan-Web-3-b.png";
 import IconCheck from "@/images/check.svg";
-import ProfileUPTD from "@/images/profil-uptd.webp";
 import SejarahBerdiri from "@/images/Sejarah-2-1536x798.png.webp";
 import Image from "next/image";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
 import { NextSeo } from "next-seo";
+import dataSejarahJSON from "@/data/dataSejaran";
 
 const dataProfil = {
   title: "Profil Solo Technopark",
@@ -22,6 +21,8 @@ const dataProfil = {
 };
 
 export default function Profile() {
+  const dataSejarah = JSON.parse(dataSejarahJSON);
+
   return (
     <>
       <NextSeo
@@ -30,7 +31,7 @@ export default function Profile() {
         canonical="https://solotechnopark.id/"
         openGraph={{
           url: "https://solotechnopark.id/",
-          title: "home | solo technopark",
+          title: "profil - solo technopark",
           description: "Kawasan Inovatif dan Berdaya Saing International.",
           images: [
             {
@@ -40,7 +41,7 @@ export default function Profile() {
               alt: "Profile Solo Technopark",
             },
           ],
-          site_name: "solotechnopark",
+          site_name: "profil - solotechnopark",
         }}
       />
 
@@ -54,20 +55,16 @@ export default function Profile() {
         />
       </Head>
       <Navbar />
-      <header className="mt-20">
-        <div className="container lg:h-[95vh] pb-20 grid lg:grid-cols-12 gap-5 items-center">
-          <div className="mx-auto flex flex-col justify-center items-start lg:col-span-5">
-            <h4 className="uppercase text-lg font-medium text-gray-600">
-              Profil{" "}
-            </h4>
-            <h2 className="capitalize head-2 my-5">
-              Kelembagaan
-              <strong className="text-primary-100"> Solo Technopark</strong>
-            </h2>
+      <header className="mt-20 pt-16 bg-flower-1">
+        <div className="container lg:h-[85vh] pb-20 grid lg:grid-cols-12 gap-5 lg:gap-10 items-center">
+          <div className="mx-auto flex flex-col justify-center items-start lg:col-span-5 text-white">
+            <h1 className="capitalize head-1 my-5 leading-[3.5rem]">
+              Profil <br /> Kelembagaan Solo Technopark
+            </h1>
             <ul>
               {dataProfil &&
                 dataProfil.paragraph.map((data, i) => (
-                  <li key={i} className="paragraph">
+                  <li key={i} className="paragraph text-white">
                     {data}
                   </li>
                 ))}
@@ -79,43 +76,10 @@ export default function Profile() {
         </div>
       </header>
       <main>
-        {/* <section className="bg-header-gerigi-1 rounded-t-[3rem] -translate-y-8 py-20 pb-32">
-          <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-              <div>
-                <span className="text-white">PROFIL</span>
-                <h2 className="head-2 text-white my-5">Kelembagaan</h2>
-
-                <ul>
-                  <li className="mb-5">
-                    Sebagai Unit Pelaksana Teknis Daerah (UPTD) pada BALITBANGDA
-                    Kota Surakarta, berdasarkan Peraturan Walikota No. 15 Tahun
-                    2022
-                  </li>
-                  <li className="mb-5">
-                    Sebagai Unit Pelaksana Teknis Daerah (UPTD) pada BALITBANGDA
-                    Kota Surakarta, berdasarkan Peraturan Walikota No. 15 Tahun
-                    2022
-                  </li>
-                </ul>
-              </div>
-              <div className="">
-                <Image
-                  className="rounded-3xl"
-                  src={KawasanSTP}
-                  width={678}
-                  height={450}
-                  alt="fungsi dan peran"
-                />
-              </div>
-            </div>
-          </div>
-        </section> */}
-
         <section className="bg-gray-100">
           <div className="container py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div className="mx-auto flex flex-col justify-center items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              <div className="">
                 <h2 className="capitalize head-2 mt-5">Visi</h2>
                 <p className="paragraph">
                   Menjadi kawasan terpadu dunia industri, perguruan tinggi,
@@ -124,6 +88,8 @@ export default function Profile() {
                   daya saing dan pertumbuhan ekonomi daerah. Peran media
                   mensupport semua aktivitas di Solo Technopark tersebut.
                 </p>
+              </div>
+              <div className="mx-auto flex flex-col justify-center items-start">
                 <h2 className="capitalize head-2 mt-5">Misi</h2>
                 <ul className="my-5">
                   <li className="flex items-start gap-5 my-5">
@@ -163,12 +129,32 @@ export default function Profile() {
           </div>
         </section>
 
-        <section className="bg-secondary-100">
+        <section className="bg-gray-100 bg-rounded-1">
           <div className="container text-center py-20 lg:py-20">
-            <h2 className="head-3 uppercase text-center mx-auto">
+            <h2 className="head-1 capitalize text-center mx-auto mt-5 lg:mt-20 text-white">
               Sejarah Berdirinya Solo Technopark
             </h2>
-            <Image src={SejarahBerdiri} alt="sejarah berdiri stp" />
+            <div className="bg-gray-100 p-5 lg:p-10 rounded-3xl mt-16">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+                {dataSejarah &&
+                  dataSejarah.map((data, i) => (
+                    <div key={i} className="text-left">
+                      <Image
+                        className="mb-7"
+                        src={data.icon}
+                        width={60}
+                        height={60}
+                        alt="icon"
+                      />
+                      <h2 className="head-2">{data.tahun}</h2>
+                      <h3 className="text-2xl font-medium my-5">
+                        {data.title}
+                      </h3>
+                      <p>{data.desc}</p>
+                    </div>
+                  ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -176,11 +162,9 @@ export default function Profile() {
           <div className="container py-20">
             <div className="grid grid-cols-1 lg:grid-cols-3 md:gap-10">
               <div className="col-span-2 mx-auto flex flex-col justify-center lg:items-start ">
-                <h4 className="uppercase text-lg font-medium text-gray-600">
-                  Leadership{" "}
-                </h4>
-                <h2 className="capitalize head-2 mt-5">
-                  Direksi Solo Technopark
+                <h4 className="uppercase text-2xl">Leadership</h4>
+                <h2 className="capitalize head-1 my-5">
+                  Kawasan Sains dan Teknologi Solo Technopark
                 </h2>
                 <p className="paragraph">
                   Pertama dan yang utama, kita patut bersyukur atas karunia

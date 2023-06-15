@@ -60,7 +60,7 @@ export default function MitraSwiper({ data, index }) {
         slidesPerView={9}
         // breakpoints={{
         //   // Konfigurasi untuk perangkat mobile
-        //   640: {
+        //   640: {f
         //     slidesPerView: 8,
         //   },
         //   // Konfigurasi untuk perangkat desktop
