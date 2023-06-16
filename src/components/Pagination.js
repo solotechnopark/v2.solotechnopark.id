@@ -17,6 +17,7 @@ function Pagination({ totalPage, currentPage }) {
           onClick={() => {
             setPage(i);
             dispatch({ type: "SET_CURRENT_PAGE", payload: i + 1 });
+            window.scrollTo(0, 0);
           }}
         >
           <span

@@ -13,13 +13,14 @@ function Berita() {
   const [berita, setBerita] = useState([]);
   const [state, dispatch] = useAppContext();
   const [pagination, setPagination] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch({ type: "SET_CURRENT_PAGE", payload: 1 });
   }, []);
 
   useEffect(() => {
-    getBerita(1);
+    getBerita(state.isCurrentPage || 1);
   }, [state.isCurrentPage]);
 
   const getBerita = async (page) => {
@@ -29,6 +30,7 @@ function Berita() {
 
       setBerita(data);
       setPagination({ totalPages: meta.totalPages, currentPage: 1 });
+      setLoading(false);
     } catch (err) {
       console.warn(err);
     }
@@ -59,27 +61,27 @@ function Berita() {
         <section className="mt-36">
           <div className="container pt-10 pb-20">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-stretch gap-5">
-              {berita.length > 0 ? (
-                berita.map((data, i) => (
-                  <Link href={`berita/${data.slug}`} target="_blank" key={i}>
-                    <Event
-                      key={i}
-                      type={"berita"}
-                      slug={data.slug}
-                      title={data.title}
-                      date={convertDate(data.createdAt)}
-                      image={data.image}
-                    />
-                  </Link>
-                ))
-              ) : (
-                <>
-                  <CardSkeleton />
-                  <CardSkeleton />
-                  <CardSkeleton />
-                  <CardSkeleton />
-                </>
-              )}
+              {berita.length > 0
+                ? berita.map((data, i) => (
+                    <Link href={`berita/${data.slug}`} target="_blank" key={i}>
+                      <Event
+                        key={i}
+                        type={"berita"}
+                        slug={data.slug}
+                        title={data.title}
+                        date={convertDate(data.createdAt)}
+                        image={data.image}
+                      />
+                    </Link>
+                  ))
+                : loading && (
+                    <>
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                    </>
+                  )}
             </div>
             <div className="flex justify-center mt-10 lg:mt-20">
               <Pagination

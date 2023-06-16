@@ -12,6 +12,7 @@ function Event() {
   const [event, setEvent] = useState([]);
   const [pagination, setPagination] = useState({});
   const [state, dispatch] = useAppContext();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch({ type: "SET_CURRENT_PAGE", payload: 1 });
@@ -28,8 +29,10 @@ function Event() {
 
       setEvent(data);
       setPagination({ totalPages: meta.totalPages, currentPage: 1 });
+      setLoading(false);
     } catch (err) {
       console.warn(err);
+      setLoading(true);
     }
   };
 
@@ -92,27 +95,27 @@ function Event() {
         <section>
           <div className="container my-20 mt-36">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              {event.length > 0 ? (
-                event.map((data, i) => (
-                  <CardEvent
-                    key={i}
-                    slug={data.slug}
-                    title={data.title}
-                    category={data.kategori}
-                    image={data.foto}
-                    date={data.startDate}
-                    time={data.waktu}
-                    location={data.tempat}
-                  />
-                ))
-              ) : (
-                <>
-                  <CardSkeleton />
-                  <CardSkeleton />
-                  <CardSkeleton />
-                  <CardSkeleton />
-                </>
-              )}
+              {event.length > 0
+                ? event.map((data, i) => (
+                    <CardEvent
+                      key={i}
+                      slug={data.slug}
+                      title={data.title}
+                      category={data.kategori}
+                      image={data.foto}
+                      date={data.startDate}
+                      time={data.waktu}
+                      location={data.tempat}
+                    />
+                  ))
+                : loading && (
+                    <>
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                    </>
+                  )}
             </div>
             <div className="flex justify-center mt-10 lg:mt-20">
               <Pagination
