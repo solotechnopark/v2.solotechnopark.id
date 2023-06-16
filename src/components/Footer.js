@@ -62,11 +62,16 @@ function Footer() {
           </div>
           <div className="mt-5">
             <Image src={KawasanSTP} alt="kawasan STP" />
-            <Image
-              className="w-24 mr-0 ml-auto mt-5"
-              src={Barcode}
-              alt="kawasan STP"
-            />
+            <Link
+              href={"https://s.id/contactsolotechnopark?sid-qr=1"}
+              target="_blank"
+            >
+              <Image
+                className="w-24 mr-0 ml-auto mt-5"
+                src={Barcode}
+                alt="kawasan STP"
+              />
+            </Link>
           </div>
         </div>
       </div>

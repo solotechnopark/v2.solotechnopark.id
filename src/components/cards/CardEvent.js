@@ -12,16 +12,17 @@ function CardEvent({ slug, title, category, date, image, location, time }) {
   return (
     <Card
       className={
-        "border grid grid-cols-1 md:grid-cols-7 gap-5 shadow-lg my-2 hover:shadow-sm transition-all overflow-hidden"
+        "border grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-5 shadow-lg my-2 hover:shadow-sm transition-all overflow-hidden mx-5"
       }
     >
-      <div className="col-span-7 md:col-span-3 overflow-hidden  max-h-72">
+      <div className="col-span-7 lg:col-span-3 overflow-hidden h-72">
         {image ? (
-          <img
+          <Image
             className="object-cover object-top w-[100%] h-[100%]"
             src={image}
             alt="My Image"
-            placeholder="blur"
+            width={265}
+            height={325}
           />
         ) : (
           <SkeletonInnerImage />
@@ -54,7 +55,7 @@ function CardEvent({ slug, title, category, date, image, location, time }) {
           </span>
         )}
 
-        <Link href={`/event/${slug}`}>
+        <Link href={`/event/${slug}`} target="_blank">
           <Button
             className={
               "border py-3 lg:py-2 w-full lg:w-auto hover:bg-primary-100 hover:text-white mt-5"

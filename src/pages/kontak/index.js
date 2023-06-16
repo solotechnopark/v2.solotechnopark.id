@@ -1,8 +1,8 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
-import React, { useEffect } from "react";
-import HeroImage from "@/images/Foto-Web.webp";
+import React from "react";
+import KawasanSTP from "@/images/gedung-stc.png";
 import Image from "next/image";
 import Card from "@/components/cards/Card";
 import Button from "@/components/Button";
@@ -43,25 +43,26 @@ function Kontak() {
       />
 
       <Navbar />
-      {/* <header className="bg-memphis bg-center bg-cover bg-slate-50">
-          <div className="container grid lg:grid-cols-2 lg:h-[85vh]">
-            <div className="flex flex-col justify-center items-start order-2 md:order-1 my-10">
-              <h3 className="head-4 mb-2">
-                Beranda <span className="text-primary-100">/</span> Kontak
-              </h3>
-              <h1 className="head-1">Kontak</h1>
-            </div>
-            <div className="flex items-center justify-end order-1 md:order-2">
-              <Image className="w-full" src={HeroImage} alt="kontak image" />
-            </div>
+
+      <header className="mt-20 pt-16 bg-contact-patern">
+        <div className="container lg:h-[85vh] pb-20 grid lg:grid-cols-12 gap-5 lg:gap-10 items-center">
+          <div className="mx-auto flex flex-col justify-center items-start lg:col-span-5 text-white">
+            <h1 className="capitalize head-1 my-5  leading-[3.5rem]">
+              Informasi <br /> Kontak
+            </h1>
           </div>
-        </header> */}
-      <main className="mt-20">
+          <div className="flex justify-end items-center lg:col-span-7 ">
+            <Image className="w-full mt-10" src={KawasanSTP} alt="flow" />
+          </div>
+        </div>
+      </header>
+
+      <main className="">
         <section>
           <div className="container py-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
-                <Card className={"shadow-lg p-5 md:p-10"}>
+                <Card className={"shadow-lg p-5 md:p-10 border"}>
                   <div className="header border-b ">
                     <h4 className="uppercase text-lg font-medium text-gray-600">
                       Hubungi kami

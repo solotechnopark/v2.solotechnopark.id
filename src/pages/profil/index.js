@@ -1,18 +1,18 @@
 // import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
-import ImageProfile from "@/images/Mas-Yudith.webp";
-import Dinto from "@/images/Dinto.webp";
+import ImageProfile from "@/images/Mas-Gibran.png";
 import KawasanSTP from "@/images/Kawsan-STP-6.png";
 import BaganWeb from "@/images/Bagan-Web-3-b.png";
 import IconCheck from "@/images/check.svg";
-import SejarahBerdiri from "@/images/Sejarah-2-1536x798.png.webp";
+import ImageSejarahSTP from "@/images/sejarah-stp-v2.png";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { NextSeo } from "next-seo";
-import dataSejarahJSON from "@/data/dataSejaran";
+import dataLeadership from "@/data/dataLeadership.json";
+import dataProfilJSON from "@/data/dataProfil";
 
-const dataProfil = {
+const dataDeskripsiProfil = {
   title: "Profil Solo Technopark",
   paragraph: [
     "Sebagai Unit Pelaksana Teknis Daerah (UPTD) pada BALITBANGDA Kota Surakarta, berdasarkan Peraturan Walikota No. 15 Tahun 2022",
@@ -21,7 +21,7 @@ const dataProfil = {
 };
 
 export default function Profile() {
-  const dataSejarah = JSON.parse(dataSejarahJSON);
+  const dataProfil = JSON.parse(dataProfilJSON);
 
   return (
     <>
@@ -62,8 +62,8 @@ export default function Profile() {
               Profil <br /> Kelembagaan Solo Technopark
             </h1>
             <ul>
-              {dataProfil &&
-                dataProfil.paragraph.map((data, i) => (
+              {dataDeskripsiProfil &&
+                dataDeskripsiProfil.paragraph.map((data, i) => (
                   <li key={i} className="paragraph text-white">
                     {data}
                   </li>
@@ -81,7 +81,7 @@ export default function Profile() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
               <div className="">
                 <h2 className="capitalize head-2 mt-5">Visi</h2>
-                <p className="paragraph">
+                <p className="paragraph mt-10">
                   Menjadi kawasan terpadu dunia industri, perguruan tinggi,
                   riset dan teknologi serta kewirausahaan berbasis teknologi dan
                   inovasi bagi industri kecil menengah dalam rangka peningkatan
@@ -89,9 +89,9 @@ export default function Profile() {
                   mensupport semua aktivitas di Solo Technopark tersebut.
                 </p>
               </div>
-              <div className="mx-auto flex flex-col justify-center items-start">
+              <div className="mx-auto flex flex-col justify-start items-start">
                 <h2 className="capitalize head-2 mt-5">Misi</h2>
-                <ul className="my-5">
+                <ul className="my-5 text-gray-600">
                   <li className="flex items-start gap-5 my-5">
                     <Image src={IconCheck} alt="check" />
                     <span>
@@ -134,120 +134,78 @@ export default function Profile() {
             <h2 className="head-1 capitalize text-center mx-auto mt-5 lg:mt-20 text-white">
               Sejarah Berdirinya Solo Technopark
             </h2>
-            <div className="bg-gray-100 p-5 lg:p-10 rounded-3xl mt-16">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
-                {dataSejarah &&
-                  dataSejarah.map((data, i) => (
-                    <div key={i} className="text-left">
-                      <Image
-                        className="mb-7"
-                        src={data.icon}
-                        width={60}
-                        height={60}
-                        alt="icon"
-                      />
-                      <h2 className="head-2">{data.tahun}</h2>
-                      <h3 className="text-2xl font-medium my-5">
-                        {data.title}
-                      </h3>
-                      <p>{data.desc}</p>
-                    </div>
-                  ))}
-              </div>
-            </div>
+
+            <Image
+              className="mx-auto mt-20 mb-10"
+              src={ImageSejarahSTP}
+              width={1245}
+              height={671}
+              alt="sejarah stp"
+            />
           </div>
         </section>
 
-        <section>
+        <section className="bg-gray-100">
           <div className="container py-20">
             <div className="grid grid-cols-1 lg:grid-cols-3 md:gap-10">
               <div className="col-span-2 mx-auto flex flex-col justify-center lg:items-start ">
                 <h4 className="uppercase text-2xl">Leadership</h4>
-                <h2 className="capitalize head-1 my-5">
+                <h2 className="capitalize head-1 my-5 text-primary-100 mb-20">
                   Kawasan Sains dan Teknologi Solo Technopark
                 </h2>
-                <p className="paragraph">
-                  Pertama dan yang utama, kita patut bersyukur atas karunia
-                  Tuhan yang telah memberikan kita kesehatan dan kemudahan dalam
-                  menjalankan aktifitas kita dengan sebaik-baiknya.
-                </p>
-                <p className="paragraph">
-                  Dalam perkembangan teknologi dan inovasi yang terus melesat,
-                  Solo Technopark memberikan fasilitas sebuah kawasan yang bisa
-                  dimanfaatkan untuk diisi dengan kegiatan produktif.
-                </p>
-                <p className="paragraph">
-                  Terlebih lokasi kami yang berada berdekatan dengan beberapa
-                  perguruan tinggi, kami sangat berharap para mahasiswa bisa
-                  berinovasi dengan maksimal.
-                </p>
-                <p className="paragraph">
-                  Kami juga mengajak perusahaan-perusahaan swasta, usaha mikro,
-                  menegah dan kecil (UMKM) turut serta berkembang dan maju
-                  bersama di Solo Technopark.
-                </p>
-                <p className="paragraph">
-                  Semoga apa yang menjadi harapan kami dapat terwujud dengan
-                  beberapa program yang kami adakan di dalam Solo Technopark.
-                </p>
+
+                {dataLeadership &&
+                  dataLeadership.map((data, i) => (
+                    <div key={i} className="mb-5">
+                      <h3 className="head-4 my-5">{data.title}</h3>
+                      <p className="text-gray-600">{data.desc}</p>
+                    </div>
+                  ))}
               </div>
-              <div className="flex flex-col justify-center items-end mx-auto md:ml-auto md:mr-0">
-                <div className="bg-primary-100 w-60 rounded-lg overflow-hidden flex justify-center items-center">
+              <div className="flex flex-col justify-center items-end mx-auto md:ml-auto md:mr-0 mt-20 lg:mt-0">
+                <div className="bg-primary-100 w-72 rounded-lg overflow-hidden flex justify-center items-center">
                   <Image src={ImageProfile} alt="image profile" />
                 </div>
-                <div className="text-center my-5">
-                  <h4 className="head-4">Yudit Cahyantoro N.S</h4>
-                  <span>Pemimpin UPT Solo Technopark</span>
+                <div className="text-center my-5  mx-auto">
+                  <h4 className="head-4">Gibran Rakabuming Raka</h4>
+                  <span>Walikota Surakarta</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-secondary-100">
+        <section className="">
           <div className="container pt-20 pb-10">
-            <div className="flex flex-wrap  justify-evenly items-center">
-              <div className="my-5">
-                <div className="w-72 rounded-md overflow-hidden flex border-b-4 border-primary-100 justify-center items-center ">
-                  <Image src={Dinto} alt="check" />
-                </div>
-                <div className="text-center my-5">
-                  <h4 className="head-4">Christian Ardinto</h4>
-                  <span>Pejabat Teknis Pelayanan & Pengembangan</span>
-                </div>
-              </div>
-              <div className="my-5">
-                <div className="w-72 rounded-md overflow-hidden flex border-b-4 border-primary-100 justify-center items-center ">
-                  <Image src={Dinto} alt="check" />
-                </div>
-                <div className="text-center my-5">
-                  <h4 className="head-4">Christian Ardinto</h4>
-                  <span>Pejabat Teknis Pelayanan & Pengembangan</span>
-                </div>
-              </div>
-              <div className="my-5">
-                <div className="w-72 rounded-md overflow-hidden flex border-b-4 border-primary-100 justify-center items-center ">
-                  <Image src={Dinto} alt="check" />
-                </div>
-                <div className="text-center my-5">
-                  <h4 className="head-4">Christian Ardinto</h4>
-                  <span>Pejabat Teknis Pelayanan & Pengembangan</span>
-                </div>
-              </div>
+            <div className="flex flex-wrap  justify-evenly items-center mb-10">
+              {console.log(dataProfil)}
+              {dataProfil &&
+                dataProfil[0].map((data, i) => (
+                  <div key={i} className="my-5">
+                    <div className="w-72 rounded-3xl overflow-hidden pt-5 px-5 flex bg-gray-100 justify-center items-center mx-auto">
+                      <Image className="mx-auto" src={data.image} alt="check" />
+                    </div>
+                    <div className="text-center my-5">
+                      <h4 className="head-4">{data.nama}</h4>
+                      <span>{data.jabatan}</span>
+                    </div>
+                  </div>
+                ))}
             </div>
-          </div>
-        </section>
-
-        <section className=" bg-no-repeat bg-cover bg-center bg-body-1">
-          <div className="container py-20 flex flex-col justify-end items-center">
-            <Image className="pt-10" src={KawasanSTP} alt="kawasan STP" />
-
-            <span className="lg:absolute right-96 z-0">
-              <h2 className="head-3 font-normal text-primary-100 italic text-center lg:max-w-sm">
-                Where <strong>Competence Innovation, Technology,</strong> and{" "}
-                <strong>Bussines Grow</strong>
-              </h2>
-            </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-evenly items-start">
+              {dataProfil &&
+                dataProfil[1].map((data, i) => (
+                  <div key={i} className="my-5 mx-5">
+                    <div className="w-72 rounded-3xl overflow-hidden pt-5 px-5 flex bg-gray-100 justify-center items-center mx-auto">
+                      <Image className="mx-auto" src={data.image} alt="check" />
+                    </div>
+                    <div className="text-center my-5">
+                      <h4 className="head-4">{data.nama}</h4>
+                      <span>{data.jabatan}</span>
+                    </div>
+                  </div>
+                ))}
+            </div>
           </div>
         </section>
       </main>

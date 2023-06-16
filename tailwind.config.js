@@ -23,6 +23,8 @@ module.exports = {
         sitemap: "url('../../src/images/site-room.png')",
         "flower-1":
           "url('../../src/images/bg-header-flower.png'), linear-gradient(to bottom, #C40330, #740330)",
+        "contact-patern":
+          "url('../../src/images/contact-patern.png'), linear-gradient(to bottom, #C40330, #740330)",
         "rounded-1": "url('../../src/images/bg-rounded-1.png')",
         // "body-1": "url('../../src/images/bg-stp-1.png')",
         // "body-2": "url('../../src/images/bg-inverse-3.1.png')",

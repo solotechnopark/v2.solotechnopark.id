@@ -98,3 +98,7 @@ html {
 .bg-rounded-1 {
   @apply bg-no-repeat bg-cover;
 }
+
+.bg-contact-patern {
+  @apply bg-no-repeat bg-cover bg-center;
+}

@@ -11,15 +11,22 @@ function Pagination({ totalPage, currentPage }) {
 
     for (let i = 0; i < totalPage; i++) {
       result.push(
-        <li key={i}>
-          <Link
+        <li
+          key={i}
+          className="cursor-pointer"
+          onClick={() => {
+            setPage(i);
+            dispatch({ type: "SET_CURRENT_PAGE", payload: i + 1 });
+          }}
+        >
+          <span
             href="#"
             className={`px-3 py-2 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
-              currentPage === i + 1 ? "bg-gray-100" : "bg-white"
+              state.isCurrentPage === i + 1 ? "bg-gray-100" : "bg-white"
             }`}
           >
             {i + 1}
-          </Link>
+          </span>
         </li>
       );
     }
@@ -37,7 +44,9 @@ function Pagination({ totalPage, currentPage }) {
       //   currentPage: page - 1,
       // });
 
-      window.scrollTo(0, 0);
+      dispatch({ type: "SET_CURRENT_PAGE", payload: page - 1 });
+
+    window.scrollTo(0, 0);
   };
 
   const next = (e) => {
@@ -49,7 +58,9 @@ function Pagination({ totalPage, currentPage }) {
       //   ...pagination,
       //   currentPage: page + 1,
       // });
-      window.scrollTo(0, 0);
+      dispatch({ type: "SET_CURRENT_PAGE", payload: page + 1 });
+
+    window.scrollTo(0, 0);
   };
 
   return (

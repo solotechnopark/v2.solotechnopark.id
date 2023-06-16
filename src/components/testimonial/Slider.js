@@ -2,8 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 function Slider({ src, title, position, office, desc }) {
-  console.log(src);
-
   return (
     <div className="bg-white shadow-lg border-t mx-2 rounded-3xl p-5 cursor-grab">
       <div className="text-start flex items-center gap-5">

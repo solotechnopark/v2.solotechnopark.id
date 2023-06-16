@@ -7,7 +7,7 @@ import Link from "next/link";
 function Event({ title, date, image, slug, type }) {
   return (
     <Link href={`${type}/${slug}`} target="_blank">
-      <Card className="p-0 overflow-hidden transition-all cursor-pointer hover:bg-slate-50 border bg-gray-100 mx-5">
+      <Card className="p-0 overflow-hidden transition-all cursor-pointer hover:bg-slate-50 border bg-gray-100">
         <div className="bg-primary-gradient-x-100 w-full h-52 overflow-hidden flex justify-center items-center">
           {image ? (
             <Image
@@ -21,7 +21,7 @@ function Event({ title, date, image, slug, type }) {
             <SkeletonInnerImage />
           )}
         </div>
-        <div className="p-5 " style={{ minHeight: "8rem", minWidth: "26rem" }}>
+        <div className="p-5 " style={{ minHeight: "8rem" }}>
           <h4 className="capitalize head-4 text-gray-800">{title}</h4>
         </div>
         <div className="px-5 py-2">

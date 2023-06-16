@@ -7,32 +7,28 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
 import Link from "next/link";
+import { useAppContext } from "@/context/AppContext";
 
 function Berita() {
   const [berita, setBerita] = useState([]);
+  const [state, dispatch] = useAppContext();
+  const [pagination, setPagination] = useState(0);
 
-  // useEffect(() => {
-  //   // setNavigation("berita");
-  // }, []);
+  useEffect(() => {
+    dispatch({ type: "SET_CURRENT_PAGE", payload: 1 });
+  }, []);
 
   useEffect(() => {
     getBerita(1);
-  }, []);
+  }, [state.isCurrentPage]);
 
   const getBerita = async (page) => {
     try {
       const response = await axios.get(`berita/all?page=${page}`);
-
-      const data = response.data.data;
-      // const totalPages = response.data.meta.totalPages;
-
-      // setPagination({
-      //   ...pagination,
-      //   currentPage: page,
-      //   totalPages,
-      // });
+      const { data, meta } = response.data;
 
       setBerita(data);
+      setPagination({ totalPages: meta.totalPages, currentPage: 1 });
     } catch (err) {
       console.warn(err);
     }
@@ -62,7 +58,7 @@ function Berita() {
         <Navbar />
         <section className="mt-36">
           <div className="container pt-10 pb-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-stretch gap-5">
               {berita.length > 0 ? (
                 berita.map((data, i) => (
                   <Link href={`berita/${data.slug}`} target="_blank" key={i}>
@@ -86,10 +82,10 @@ function Berita() {
               )}
             </div>
             <div className="flex justify-center mt-10 lg:mt-20">
-              {/* <Pagination
+              <Pagination
                 totalPage={pagination.totalPages}
                 currentPage={pagination.currentPage}
-              /> */}
+              />
             </div>
           </div>
         </section>

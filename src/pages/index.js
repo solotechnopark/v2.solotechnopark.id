@@ -27,8 +27,8 @@ import ModalLayanan from "@/components/modal/ModalLayanan";
 
 export async function getServerSideProps() {
   try {
-    const eventResponse = await axios.get("event/all?limit=3");
-    const beritaResponse = await axios.get("berita/all?limit=3");
+    const eventResponse = await axios.get("event/all?limit=4");
+    const beritaResponse = await axios.get("berita/all?limit=4");
     const mitraResponse = await axios.get("mitra");
     const testimoniResponse = await axios.get("testimonial");
 
@@ -315,7 +315,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:place-items-center lg:items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:place-items-center lg:items-stretch">
               {events ? (
                 events.map((data, i) => (
                   <Event
@@ -349,7 +349,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:place-items-center lg:items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5 lg:place-items-center lg:items-stretch">
               {berita.length > 0 ? (
                 berita.map((data, i) => (
                   <Event
