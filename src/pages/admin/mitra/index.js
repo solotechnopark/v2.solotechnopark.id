@@ -3,8 +3,30 @@ import Button from "@/components/Button";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
+import axios from "@/pages/api/axios";
+import Image from "next/image";
 
-function mitra() {
+export async function getServerSideProps() {
+  try {
+    const responseDataMitra = await axios.get("mitra");
+    const dataMitra = responseDataMitra.data.data;
+
+    return {
+      props: {
+        dataMitra,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        dataMitra: [],
+      },
+    };
+  }
+}
+
+function mitra({ dataMitra }) {
   return (
     <AdminLayout>
       <section>
@@ -55,33 +77,39 @@ function mitra() {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td>1.</td>
-                <th
-                  scope="row"
-                  className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  {/* <Image
-                      className="w-10 h-10 rounded-full"
-                      src={data.logo}
-                      width={40}
-                      height={40}
-                      alt={data.name}
-                    /> */}
-                  <div className="pl-3">
-                    <div className="text-base font-semibold capitalize">
-                      {/* {data.name} */}gas
-                    </div>
-                  </div>
-                </th>
-                <th>gaes</th>
-                {/* <td className="px-4 py-4">{data.logo}</td> */}
+              {dataMitra &&
+                dataMitra.map((data, i) => (
+                  <tr
+                    key={i}
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  >
+                    <td className="pl-4">{i + 1}.</td>
+                    <th
+                      scope="row"
+                      className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      <Image
+                        className="w-10 h-10 rounded-full"
+                        src={data.image}
+                        width={40}
+                        height={40}
+                        alt={data.title}
+                      />
+                      <div className="px-4">
+                        <div className="text-base font-semibold capitalize">
+                          {data.title}
+                        </div>
+                      </div>
+                    </th>
+                    <th className="px-4">{data.title}</th>
+                    {/* <td className="px-4 py-4">{data.logo}</td> */}
 
-                <td className="px-4 py-4 flex items-center gap-2">
-                  <ButtonEdit />
-                  <ButtonDelete />
-                </td>
-              </tr>
+                    <td className="px-4 py-4 flex items-center gap-2">
+                      <ButtonEdit />
+                      <ButtonDelete />
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

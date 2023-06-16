@@ -2,10 +2,32 @@ import React from "react";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import Button from "@/components/Button";
 import Link from "next/link";
+import axios from "@/pages/api/axios";
+import Image from "next/image";
 import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
 
-function event() {
+export async function getServerSideProps() {
+  try {
+    const responseDataEvent = await axios.get("event/all");
+    const dataEvent = responseDataEvent.data.data;
+
+    return {
+      props: {
+        dataEvent,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        dataEvent: [],
+      },
+    };
+  }
+}
+
+function event({ dataEvent }) {
   return (
     <AdminLayout>
       <section>
@@ -28,13 +50,13 @@ function event() {
                   No.
                 </th>
                 <th scope="col" className="px-4 py-3">
-                  Gambar Event
+                  Event
                 </th>
                 <th scope="col" className="px-4 py-3">
-                  Nama Event
+                  Kategori
                 </th>
                 <th scope="col" className="px-4 py-3">
-                  Deskripsi Event
+                  Tanggal
                 </th>
                 <th scope="col" className="px-4 py-3">
                   Action
@@ -42,33 +64,40 @@ function event() {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th>1.</th>
-                <td
-                  scope="row"
-                  className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  oke
-                  {/* <Image
-                      className="w-10 h-10 rounded-full"
-                      src={data.logo}
-                      width={40}
-                      height={40}
-                      alt={data.name}
-                    /> */}
-                  <div className="pl-3">
-                    <div className="text-base font-semibold capitalize">
-                      {/* {data.name} */}nama event
-                    </div>
-                  </div>
-                </td>
-                <td className="px-4 py-4">deskripsi</td>
-                <td className="px-4 py-4">deskripsi</td>
-                <td className="px-4 py-4 flex items-center gap-2">
-                  <ButtonEdit />
-                  <ButtonDelete />
-                </td>
-              </tr>
+              {dataEvent &&
+                dataEvent.map((data, i) => (
+                  <tr
+                    key={i}
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  >
+                    <th>{i + 1}.</th>
+                    <td
+                      scope="row"
+                      className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      <Image
+                        className="w-10 h-10 rounded-sm"
+                        src={data.foto}
+                        width={40}
+                        height={40}
+                        alt={data.slug}
+                      />
+                      <div className="pl-3">
+                        <div className="text-base font-semibold capitalize">
+                          {data.title}
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-4 py-4">
+                      {data.kategori ? data.kategori : "Tidak ada kategori"}
+                    </td>
+                    <td className="px-4 py-4">{data.startDate}</td>
+                    <td className="px-4 py-4 flex items-center gap-2">
+                      <ButtonEdit />
+                      <ButtonDelete />
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

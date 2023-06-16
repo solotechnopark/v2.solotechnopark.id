@@ -2,8 +2,32 @@ import React from "react";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import Button from "@/components/Button";
 import Link from "next/link";
+import ButtonEdit from "@/components/button/ButtonEdit";
+import ButtonDelete from "@/components/button/ButtonDelete";
+import Image from "next/image";
+import axios from "@/pages/api/axios";
 
-function berita() {
+export async function getServerSideProps() {
+  try {
+    const responseDataBerita = await axios.get("/berita/all");
+    const dataBerita = responseDataBerita.data.data;
+
+    return {
+      props: {
+        dataBerita,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        dataBerita: [],
+      },
+    };
+  }
+}
+
+function berita({ dataBerita }) {
   return (
     <AdminLayout>
       <section>
@@ -29,10 +53,7 @@ function berita() {
                   Gambar Berita
                 </th>
                 <th scope="col" className="px-4 py-3">
-                  Nama Berita
-                </th>
-                <th scope="col" className="px-4 py-3">
-                  Deskripsi Berita
+                  Tanggal Upload
                 </th>
                 <th scope="col" className="px-4 py-3">
                   Action
@@ -40,32 +61,38 @@ function berita() {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th>1.</th>
-                <td
-                  scope="row"
-                  className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  oke
-                  {/* <Image
-                      className="w-10 h-10 rounded-full"
-                      src={data.logo}
-                      width={40}
-                      height={40}
-                      alt={data.name}
-                    /> */}
-                  <div className="pl-3">
-                    <div className="text-base font-semibold capitalize">
-                      {/* {data.name} */}nama Berita
-                    </div>
-                  </div>
-                </td>
-                <td className="px-4 py-4">deskripsi</td>
-                <td className="px-4 py-4 flex items-center gap-2">
-                  <ButtonEdit />
-                  <ButtonDelete />
-                </td>{" "}
-              </tr>
+              {dataBerita &&
+                dataBerita.map((data, i) => (
+                  <tr
+                    key={i}
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  >
+                    <th>{i + 1}.</th>
+                    <td
+                      scope="row"
+                      className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      <Image
+                        className="w-10 h-10 rounded-sm"
+                        src={data.image}
+                        width={40}
+                        height={40}
+                        alt={data.slug}
+                      />
+                      <div className="pl-3">
+                        <div className="text-base font-semibold capitalize">
+                          <p>{data.title}</p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="px-4 py-4">{data.createdAt}</td>
+                    <td className="px-4 py-4 flex items-center gap-2">
+                      <ButtonEdit />
+                      <ButtonDelete />
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
