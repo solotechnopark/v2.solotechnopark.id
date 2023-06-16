@@ -1,14 +1,53 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import KawasanSTP from "@/images/gedung-stc.png";
 import Image from "next/image";
 import Card from "@/components/cards/Card";
 import Button from "@/components/Button";
 import { NextSeo } from "next-seo";
+import axios from "../api/axios";
 
 function Kontak() {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(404);
+  const [buttonText, setButtonText] = useState("Kirim");
+  const [dataKontak, setDataKontak] = useState({
+    nama: "",
+    email: "",
+    judul: "",
+    pesan: "",
+  });
+
+  const handlerSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setButtonText("Loading ...");
+
+    if (!dataKontak.nama || !dataKontak.email) {
+      alert("Mohon lengkapi input nama dan email.");
+      setLoading(false);
+      setButtonText("Kirim Ulang");
+      return;
+    }
+
+    try {
+      const response = await axios.post("pesan", dataKontak);
+
+      if (response.status === 200) {
+        setLoading(false);
+        setButtonText("Data berhasil dikirim");
+        setStatus(response.status);
+      } else {
+        setLoading(false);
+        setButtonText("Terjadi kesalahan! Kirim Ulang");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -73,47 +112,96 @@ function Kontak() {
                       yang Anda cari?
                     </h2>
                   </div>
-                  <form>
-                    <div className="my-5">
-                      <label className="mb-2 block head-4 ">Nama</label>
-                      <input
-                        className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-full"
-                        type={"text"}
-                        placeholder="Masukan nama lengkap disini"
-                      />
-                    </div>
-                    <div className="my-5">
-                      <label className="mb-2 block head-4 ">Email</label>
-                      <input
-                        className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-full"
-                        type={"email"}
-                        placeholder="Masukan email disini"
-                      />
-                    </div>
-                    <div className="my-5">
-                      <label className="mb-2 block head-4 ">Judul</label>
-                      <input
-                        className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-full"
-                        type={"text"}
-                        placeholder="Tentang apa yang ingin anda tanyakan"
-                      />
-                    </div>
-                    <div className="my-5">
-                      <label className="mb-2 block head-4 ">Pesan</label>
-                      <textarea
-                        className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-lg"
-                        type={"text"}
-                        placeholder="Masukan pesan yang ingin anda sampaikan disini"
-                      />
-                    </div>
-                    <Button
-                      className={
-                        "bg-primary-gradient-x-100 text-white w-full hover:opacity-50"
-                      }
-                    >
-                      Kirim
-                    </Button>
-                  </form>
+                  {status === 200 ? (
+                    <h1 className="mt-10 head-4">
+                      Pesan anda sudah kami terima! <br /> <br /> Terimakasih
+                      atas aspirasi yang telah anda berikan, kami akan
+                      meresponnya melalui email anda{" "}
+                      <strong className="text-primary-100">
+                        {dataKontak.email}
+                      </strong>
+                    </h1>
+                  ) : (
+                    <form>
+                      <div className="my-5">
+                        <label className="mb-2 block head-4">Nama</label>
+                        <input
+                          required
+                          className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-full"
+                          type="text"
+                          placeholder="Masukkan nama lengkap di sini"
+                          value={dataKontak.nama}
+                          onChange={(e) =>
+                            setDataKontak({
+                              ...dataKontak,
+                              nama: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div className="my-5">
+                        <label className="mb-2 block head-4">Email</label>
+                        <input
+                          required
+                          className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-full"
+                          type="email"
+                          placeholder="Masukkan email di sini"
+                          value={dataKontak.email}
+                          onChange={(e) =>
+                            setDataKontak({
+                              ...dataKontak,
+                              email: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div className="my-5">
+                        <label className="mb-2 block head-4">Judul</label>
+                        <input
+                          className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-full"
+                          type="text"
+                          placeholder="Tentang apa yang ingin Anda tanyakan"
+                          value={dataKontak.judul}
+                          onChange={(e) =>
+                            setDataKontak({
+                              ...dataKontak,
+                              judul: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div className="my-5">
+                        <label className="mb-2 block head-4">Pesan</label>
+                        <textarea
+                          className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-lg"
+                          placeholder="Masukkan pesan yang ingin Anda sampaikan di sini"
+                          value={dataKontak.pesan}
+                          onChange={(e) =>
+                            setDataKontak({
+                              ...dataKontak,
+                              pesan: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div
+                        className={`${
+                          loading
+                            ? "focus:outline-none disabled:opacity-25"
+                            : ""
+                        }`}
+                        onClick={handlerSubmit}
+                      >
+                        <Button
+                          className={
+                            "bg-primary-gradient-x-100 text-white w-full hover:opacity-50"
+                          }
+                        >
+                          {buttonText}
+                        </Button>
+                      </div>
+                    </form>
+                  )}
                 </Card>
               </div>
               <div className="md:my-16">
