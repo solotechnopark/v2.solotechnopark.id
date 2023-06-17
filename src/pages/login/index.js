@@ -3,8 +3,13 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import OutsideClickHandler from "react-outside-click-handler";
 import LogoSTP from "@/images/Logo-Technopark-Remake-Solo-1.webp";
 import Image from "next/image";
+import axios from "../api/axios";
+import Alert from "@/components/Alert";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 function Login() {
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,6 +23,41 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+
+    try {
+      const response = await axios.post("login", {
+        username,
+        password,
+      });
+
+      console.log(response);
+
+      if (response.status === 200) {
+        const token = response.data.data.token;
+
+        Cookies.set("token", token, {
+          expires: 7,
+          secure: true,
+          sameSite: "strict",
+        });
+
+        setIsLoading(false);
+        router.push("/admin/");
+      } else {
+        setMessage({
+          status: "danger",
+          message: "username atau password salah",
+        });
+      }
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+
+      setMessage({
+        status: "danger",
+        message: "Terjadi kesalahan pada server",
+      });
+    }
   };
 
   return (
@@ -35,6 +75,10 @@ function Login() {
                   height={60}
                 />
               </div>
+
+              {message.status && (
+                <Alert status={message.status} message={message.message} />
+              )}
 
               <form>
                 {/* form username */}

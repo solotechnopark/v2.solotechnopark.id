@@ -6,7 +6,7 @@ import {
   FaUserFriends,
   FaUserGraduate,
 } from "react-icons/fa";
-import { AiFillTag } from "react-icons/ai";
+import { AiFillMessage, AiFillTag } from "react-icons/ai";
 import { RiMiniProgramFill } from "react-icons/ri";
 
 import { useAppContext } from "@/context/AppContext";
@@ -28,6 +28,11 @@ const navigations = [
     title: "testimoni",
     path: "/admin/testimoni",
     icon: <RiMiniProgramFill size={14} />,
+  },
+  {
+    title: "pesan",
+    path: "/admin/pesan",
+    icon: <AiFillMessage size={14} />,
   },
   {
     title: "event",

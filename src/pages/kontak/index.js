@@ -173,7 +173,7 @@ function Kontak() {
                       <div className="my-5">
                         <label className="mb-2 block head-4">Pesan</label>
                         <textarea
-                          className="bg-slate-100 w-full outline-primary-100 block text-md py-3 px-4 rounded-lg"
+                          className="bg-slate-100 w-full h-60 outline-primary-100 block text-md py-3 px-4 rounded-lg"
                           placeholder="Masukkan pesan yang ingin Anda sampaikan di sini"
                           value={dataKontak.pesan}
                           onChange={(e) =>

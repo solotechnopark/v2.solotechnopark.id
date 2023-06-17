@@ -12,6 +12,22 @@ html {
   @apply mx-auto px-5 lg:px-20;
 }
 
+.content-article {
+  @apply text-gray-600;
+}
+.content-article h1,
+.content-article h2,
+.content-article h3,
+.content-article h4,
+.content-article h5,
+.content-article h6 {
+  @apply text-gray-800 font-medium;
+}
+
+.content-article h3 {
+  @apply text-xl mt-5;
+}
+
 .content-article h2 span {
   @apply text-xl lg:text-3xl  inline-block my-5;
 }

@@ -13,7 +13,7 @@ import { NextSeo } from "next-seo";
 
 export async function getServerSideProps(context) {
   try {
-    const { params } = context;
+    const { params, req } = context;
     const { slug } = params;
 
     const berita = await axios.get(`berita/${slug}`);
@@ -22,6 +22,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         berita: beritaData,
+        url: req.url,
       },
     };
   } catch (error) {
@@ -29,12 +30,14 @@ export async function getServerSideProps(context) {
     return {
       props: {
         berita: null,
+        url: null,
       },
     };
   }
 }
 
-function BeritaDetail({ berita }) {
+function BeritaDetail({ berita, url }) {
+  console.log(url);
   return (
     <>
       <NextSeo
@@ -66,12 +69,8 @@ function BeritaDetail({ berita }) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               {berita.image ? (
                 <div>
-                  <div className="bg-primary-100 rounded-lg overflow-hidden">
-                    <img
-                      className="w-full"
-                      src={berita.image}
-                      alt="profile"
-                    ></img>
+                  <div className="bg-gray-100 rounded-lg overflow-hidden">
+                    <img className="w-full" src={berita.image} alt="profile" />
                   </div>
                 </div>
               ) : (
@@ -79,9 +78,6 @@ function BeritaDetail({ berita }) {
               )}
 
               <div className="header">
-                {/* <span className="bg-slate-50 px-4 py-2 inline-block text-gray-700 border">
-                  Uncategories
-                </span> */}
                 {berita.category && (
                   <span className="gap-2 h-5 inline-block">
                     <p className="text-gray-600 my-4 text-sm bg-slate-50 border rounded-sm py-1 px-4">
@@ -91,11 +87,18 @@ function BeritaDetail({ berita }) {
                 )}
 
                 {berita.title ? (
-                  <h1 className="head-2 font-bold my-10">{berita.title}</h1>
+                  <h1 className="head-2 font-bold mt-10 mb-3">
+                    {berita.title}
+                  </h1>
                 ) : (
                   <SkeletonTitle />
                 )}
 
+                <span className="gap-2 flex items-center">
+                  <p className="text-gray-600 my-4 text-sm bg-slate-50 border rounded-sm py-1 px-4 hover:bg-gray-200 cursor-pointer">
+                    solotechnopark.id{url}
+                  </p>
+                </span>
                 {berita.time && (
                   <span className="flex items-center h-5 gap-2 mt-4">
                     <img

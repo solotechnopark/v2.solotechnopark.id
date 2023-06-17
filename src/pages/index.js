@@ -316,7 +316,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:place-items-center lg:items-stretch">
-              {events ? (
+              {events.length > 0 ? (
                 events.map((data, i) => (
                   <Event
                     key={i}
@@ -363,6 +363,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
                 ))
               ) : (
                 <>
+                  <CardSkeleton />
                   <CardSkeleton />
                   <CardSkeleton />
                   <CardSkeleton />
