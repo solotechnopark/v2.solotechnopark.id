@@ -41,7 +41,7 @@ function Login() {
           sameSite: "strict",
         });
 
-        setIsLoading(false);
+        setIsLoading(true);
         router.push("/admin/");
       } else {
         setMessage({
@@ -55,7 +55,7 @@ function Login() {
 
       setMessage({
         status: "danger",
-        message: "Terjadi kesalahan pada server",
+        message: "username atau password salah !",
       });
     }
   };

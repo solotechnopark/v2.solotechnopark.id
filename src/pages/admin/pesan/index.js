@@ -1,32 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "@/pages/layouts/AdminLayout";
-import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
 import axios from "@/pages/api/axios";
-import Image from "next/image";
-import { formatDate } from "@/utils/formatDate";
+import { useAppContext } from "@/context/AppContext";
 
-export async function getServerSideProps() {
-  try {
-    const responseDataPesan = await axios.get("pesan");
-    const dataPesan = responseDataPesan.data.data;
+function Pesan() {
+  const [dataPesan, setDataPesan] = useState([]);
+  const [state, dispatch] = useAppContext();
 
-    return {
-      props: {
-        dataPesan,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {
-        dataPesan: [],
-      },
-    };
-  }
-}
+  useEffect(() => {
+    getDataPesan();
+  }, []);
 
-function pesan({ dataPesan }) {
+  useEffect(() => {
+    getDataPesan();
+  }, [state.isReload]);
+
+  const getDataPesan = async () => {
+    try {
+      const responseDataPesan = await axios.get("pesan");
+      const dataPesan = responseDataPesan.data.data;
+
+      setDataPesan(dataPesan);
+    } catch (error) {
+      console.log(error);
+      setDataPesan([]);
+    }
+  };
+
   return (
     <AdminLayout>
       <section>
@@ -73,19 +74,17 @@ function pesan({ dataPesan }) {
                     key={i}
                     className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                   >
-                    {/* <th className="px-4">{i + 1}.</th> */}
                     <td className="px-4 py-4">
-                      {data.tanggal} <br />{" "}
+                      {data.tanggal} <br />
                     </td>
                     <td className="px-4">
-                      {" "}
                       <small className="bg-gray-50 py-1 px-2">
                         {data.waktu}
                       </small>
                     </td>
                     <td
                       scope="row"
-                      className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                      className="px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       <div className="pl-3">
                         <div className="text-base font-semibold capitalize">
@@ -97,7 +96,7 @@ function pesan({ dataPesan }) {
                     <td className="px-4 py-4">{data.judul}</td>
                     <td className="px-4 py-4">{data.pesan}</td>
                     <td className="px-4 py-4 flex items-center gap-2">
-                      <ButtonDelete />
+                      <ButtonDelete endpoint={`pesan/${data.uuid}`} />
                     </td>
                   </tr>
                 ))}
@@ -109,4 +108,4 @@ function pesan({ dataPesan }) {
   );
 }
 
-export default pesan;
+export default Pesan;

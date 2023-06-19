@@ -10,7 +10,22 @@ export default axios.create({
 export const axiosPrivate = axios.create({
   baseURL,
   headers: { "Content-Type": "application/json" },
-  withCredentials: true,
+  // withCredentials: true,
 });
+
+axiosPrivate.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      const token = ""(
+        (axiosPrivate.axiosPrivate.defaults.headers.common.Authorization = `Bearer ${token}`)
+      );
+      return axiosPrivate(originalRequest);
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const axiosJwt = axios.create({ baseURL });
