@@ -13,37 +13,37 @@
   },
   {
     "menu_title": "Layanan",
-    "menu_url": "",
+    "menu_url": "/layanan",
     "menu_target": "",
     "menu_subtitle": [
       {
         "menu_title": "Layanan Teknis",
-        "menu_url": "/",
+        "menu_url": "/layanan/teknis",
         "menu_target": ""
       },
       {
         "menu_title": "Layanan Pengembangan Teknologi",
-        "menu_url": "/",
+        "menu_url": "/layanan/pengembangan",
         "menu_target": ""
       },
       {
         "menu_title": "Layanan Inkubasi Bisnis",
-        "menu_url": "/",
+        "menu_url": "/layanan/inkubasibisnis",
         "menu_target": ""
       },
       {
         "menu_title": "Layanan Pendukung",
-        "menu_url": "/",
+        "menu_url": "/layanan/pendukung",
         "menu_target": ""
       },
       {
         "menu_title": "Layanan Oil and Gas",
-        "menu_url": "/",
+        "menu_url": "/layanan/ogsci",
         "menu_target": ""
       },
       {
         "menu_title": "Layanan Infografis",
-        "menu_url": "/",
+        "menu_url": "/layanan/infografis",
         "menu_target": ""
       }
     ]

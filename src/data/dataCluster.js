@@ -8,7 +8,7 @@ const dataCluster = [
     foto: ImageManufaktur,
     nama_cluster: "Cluster Manufaktur",
     divisi:
-      '["Sektor Mekanik dan Desain Manufaktur","Sektor Pengelasan (Genaral dan Underwater)","Sektor Otomasi"]',
+      '["Sektor Mekanik dan Desain Manufaktur" ,"Sektor Pengelasan (General dan Underwater)","Sektor Otomasi"]',
   },
   {
     id_cluster: 553975,
