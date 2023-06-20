@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import Button from "@/components/Button";
 import Link from "next/link";
@@ -6,28 +6,28 @@ import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
 import Image from "next/image";
 import axios from "@/pages/api/axios";
+import { useAppContext } from "@/context/AppContext";
 
-export async function getServerSideProps() {
-  try {
-    const responseDataBerita = await axios.get("/berita/all");
-    const dataBerita = responseDataBerita.data.data;
+function Berita() {
+  const [state, dispatch] = useAppContext();
+  const [dataBerita, setDataBerita] = useState([]);
 
-    return {
-      props: {
-        dataBerita,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {
-        dataBerita: [],
-      },
-    };
-  }
-}
+  useEffect(() => {
+    getdataBerita();
+  }, [state.isReload]);
 
-function berita({ dataBerita }) {
+  const getdataBerita = async () => {
+    try {
+      const response = await axios.get("berita/all");
+      const dataBerita = response.data.data;
+
+      setDataBerita(dataBerita);
+    } catch (error) {
+      console.log(error);
+      setDataBerita([]);
+    }
+  };
+
   return (
     <AdminLayout>
       <section>
@@ -89,7 +89,7 @@ function berita({ dataBerita }) {
                     <td className="px-4 py-4">{data.createdAt}</td>
                     <td className="px-4 py-4 flex items-center gap-2">
                       <ButtonEdit />
-                      <ButtonDelete />
+                      <ButtonDelete endpoint={`berita/${data.slug}`} />
                     </td>
                   </tr>
                 ))}
@@ -101,4 +101,4 @@ function berita({ dataBerita }) {
   );
 }
 
-export default berita;
+export default Berita;

@@ -4,15 +4,23 @@
     "kategori": "Diklat"
   },
   {
-    "slug": "diklat",
-    "kategori": "Diklat"
+    "slug": "bisnis",
+    "kategori": "bisnis"
   },
   {
-    "slug": "diklat",
-    "kategori": "Diklat"
+    "slug": "pendidikan",
+    "kategori": "pendidikan"
   },
   {
-    "slug": "diklat",
-    "kategori": "Diklat"
+    "slug": "pelatihan",
+    "kategori": "pelatihan"
+  },
+  {
+    "slug": "kerjasama",
+    "kategori": "kerjasama"
+  },
+  {
+    "slug": "webinar",
+    "kategori": "webinar"
   }
 ]

@@ -12,7 +12,7 @@ function Button({ children, onclick, className }) {
 
   return (
     <button
-      className={`${className} py-2 md:py-3 px-5 md:px-7 rounded-xl transition-all`}
+      className={`${className} py-2 md:py-3 px-5 md:px-7 rounded-xl transition-all hover:opacity-50`}
       onClick={onclick}
       // data-aos="zoom-in-up"
     >

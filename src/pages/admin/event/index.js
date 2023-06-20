@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import Button from "@/components/Button";
 import Link from "next/link";
@@ -6,28 +6,28 @@ import axios from "@/pages/api/axios";
 import Image from "next/image";
 import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
+import { useAppContext } from "@/context/AppContext";
 
-export async function getServerSideProps() {
-  try {
-    const responseDataEvent = await axios.get("event/all");
-    const dataEvent = responseDataEvent.data.data;
+function Event() {
+  const [state, dispatch] = useAppContext();
+  const [dataEvent, setDataEvent] = useState([]);
 
-    return {
-      props: {
-        dataEvent,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {
-        dataEvent: [],
-      },
-    };
-  }
-}
+  useEffect(() => {
+    getDataEvent();
+  }, [state.isReload]);
 
-function event({ dataEvent }) {
+  const getDataEvent = async () => {
+    try {
+      const response = await axios.get("event/all");
+      const dataEvent = response.data.data;
+
+      setDataEvent(dataEvent);
+    } catch (error) {
+      console.log(error);
+      setDataEvent([]);
+    }
+  };
+
   return (
     <AdminLayout>
       <section>
@@ -94,7 +94,7 @@ function event({ dataEvent }) {
                     <td className="px-4 py-4">{data.startDate}</td>
                     <td className="px-4 py-4 flex items-center gap-2">
                       <ButtonEdit />
-                      <ButtonDelete />
+                      <ButtonDelete endpoint={`event/${data.slug}`} />
                     </td>
                   </tr>
                 ))}
@@ -106,4 +106,4 @@ function event({ dataEvent }) {
   );
 }
 
-export default event;
+export default Event;

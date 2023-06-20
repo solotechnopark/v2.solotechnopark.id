@@ -3,7 +3,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import OutsideClickHandler from "react-outside-click-handler";
 import LogoSTP from "@/images/Logo-Technopark-Remake-Solo-1.webp";
 import Image from "next/image";
-import axios from "../api/axios";
+import axios, { axiosPrivate } from "../api/axios";
 import Alert from "@/components/Alert";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";

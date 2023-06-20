@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import LogoSTP from "@/images/Logo-Technopark-Remake-Solo-1.webp";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 function NavbarAdmin() {
-  //   const router = useRouter();
+  const router = useRouter();
 
   const logoutHandler = async () => {
     console.log("gaes");
@@ -59,7 +61,12 @@ function NavbarAdmin() {
           </div>
           <div className="flex items-center">
             <div className="flex items-center ml-3">
-              <div>
+              <div
+                onClick={() => {
+                  Cookies.remove("token");
+                  router.push("/login");
+                }}
+              >
                 <button className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 transition-all">
                   <RiLogoutCircleRLine />
                 </button>

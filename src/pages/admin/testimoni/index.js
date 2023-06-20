@@ -1,32 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import Button from "@/components/Button";
 import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
 import axios from "@/pages/api/axios";
 import Image from "next/image";
+import { useAppContext } from "@/context/AppContext";
+import Cookies from "js-cookie";
 
-export async function getServerSideProps() {
-  try {
-    const responseDataTestimoni = await axios.get("testimonial");
-    const dataTestimoni = responseDataTestimoni.data.data;
+function Testimoni() {
+  const [state, dispatch] = useAppContext();
+  const [dataTestimoni, setDataTestimoni] = useState([]);
+  const [image, setImage] = useState("");
 
-    return {
-      props: {
-        dataTestimoni,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {
-        dataTestimoni: [],
-      },
-    };
-  }
-}
+  const [nama, setNama] = useState("");
+  const [divisi, setDivisi] = useState("");
+  const [kerja, setKerja] = useState("");
+  const [pesan, setPesan] = useState("");
 
-function testimoni({ dataTestimoni }) {
+  useEffect(() => {
+    getDataTestimoni();
+  }, [state.isReload]);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = Cookies.get("token");
+
+    const formData = new FormData();
+    formData.append("nama", nama);
+    formData.append("divisi", divisi);
+    formData.append("kerja", kerja);
+    formData.append("pesan", pesan);
+    formData.append("foto", image);
+
+    try {
+      const response = await axios.post("testimonial", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (response.status === 200) {
+        dispatch({ type: "SET_RELOAD", payload: !state.isReload });
+        setNama("");
+        setDivisi("");
+        setKerja("");
+        setPesan("");
+        setImage("");
+      }
+
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getDataTestimoni = async () => {
+    try {
+      const response = await axios.get("testimonial");
+      // const dataLayanan = response.data.data;
+
+      setDataTestimoni(response.data.data);
+    } catch (error) {
+      console.log(error);
+      setDataTestimoni([]);
+    }
+  };
+
   return (
     <AdminLayout>
       <section>
@@ -40,6 +86,7 @@ function testimoni({ dataTestimoni }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Gambar/Foto"
                 required
+                onChange={handleFileChange}
               />
               <input
                 type="text"
@@ -47,6 +94,8 @@ function testimoni({ dataTestimoni }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Nama"
                 required
+                value={nama}
+                onChange={(e) => setNama(e.target.value)}
               />
               <input
                 type="text"
@@ -54,6 +103,8 @@ function testimoni({ dataTestimoni }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Divis/Jabatan"
                 required
+                value={divisi}
+                onChange={(e) => setDivisi(e.target.value)}
               />
               <input
                 type="text"
@@ -61,6 +112,8 @@ function testimoni({ dataTestimoni }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Tempat Bekerja/pekerjaan"
                 required
+                value={kerja}
+                onChange={(e) => setKerja(e.target.value)}
               />
             </div>
             <div className="flex justify-between items-center gap-5 mt-2">
@@ -70,9 +123,13 @@ function testimoni({ dataTestimoni }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Pesan"
                 required
+                value={pesan}
+                onChange={(e) => setPesan(e.target.value)}
               />
 
-              <Button className={"bg-primary-100 text-white"}>Tambah</Button>
+              <div onClick={handleSubmit}>
+                <Button className={"bg-primary-100 text-white"}>Tambah</Button>
+              </div>
             </div>
           </form>
         </div>
@@ -135,7 +192,7 @@ function testimoni({ dataTestimoni }) {
                     <td className="px-4 py-4">{data.pesan}</td>
                     <td className="px-4 py-4 flex items-center gap-2">
                       <ButtonEdit />
-                      <ButtonDelete />
+                      <ButtonDelete endpoint={`testimonial/${data.uuid}`} />
                     </td>
                   </tr>
                 ))}
@@ -147,4 +204,4 @@ function testimoni({ dataTestimoni }) {
   );
 }
 
-export default testimoni;
+export default Testimoni;

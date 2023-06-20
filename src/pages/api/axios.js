@@ -19,9 +19,8 @@ axiosPrivate.interceptors.response.use(
     const originalRequest = error.config;
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
-      const token = ""(
-        (axiosPrivate.axiosPrivate.defaults.headers.common.Authorization = `Bearer ${token}`)
-      );
+      const token = await axiosPrivate.post("refresh");
+      axiosPrivate.defaults.headers.common.Authorization = `Bearer ${token.data.accessToken}`;
       return axiosPrivate(originalRequest);
     }
     return Promise.reject(error);

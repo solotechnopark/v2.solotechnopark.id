@@ -1,32 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
 import axios from "@/pages/api/axios";
 import Image from "next/image";
+import { useAppContext } from "@/context/AppContext";
+import Cookies from "js-cookie";
 
-export async function getServerSideProps() {
-  try {
-    const responseDataMitra = await axios.get("mitra");
-    const dataMitra = responseDataMitra.data.data;
+function Mitra() {
+  const [state, dispatch] = useAppContext();
+  const [dataMitra, setDataMitra] = useState([]);
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
 
-    return {
-      props: {
-        dataMitra,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {
-        dataMitra: [],
-      },
-    };
-  }
-}
+  useEffect(() => {
+    getDataMitra();
+  }, [state.isReload]);
 
-function mitra({ dataMitra }) {
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = Cookies.get("token");
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("image", image);
+
+    try {
+      const response = await axios.post("mitra", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (response.status === 200) {
+        setTitle("");
+        dispatch({ type: "SET_RELOAD", payload: !state.isReload });
+      }
+
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getDataMitra = async () => {
+    try {
+      const response = await axios.get("mitra");
+      // const dataLayanan = response.data.data;
+
+      setDataMitra(response.data.data);
+    } catch (error) {
+      console.log(error);
+      setDataMitra([]);
+    }
+  };
+
   return (
     <AdminLayout>
       <section>
@@ -38,8 +73,9 @@ function mitra({ dataMitra }) {
                 type="file"
                 name="name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="Nama Mitra"
+                placeholder="Gambar Mitra"
                 required
+                onChange={handleFileChange}
               />
               <input
                 type="text"
@@ -47,9 +83,13 @@ function mitra({ dataMitra }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Nama Mitra"
                 required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
 
-              <Button className={"bg-primary-100 text-white"}>Tambah</Button>
+              <div onClick={handleSubmit}>
+                <Button className={"bg-primary-100 text-white"}>Tambah</Button>
+              </div>
             </div>
           </form>
         </div>
@@ -106,7 +146,7 @@ function mitra({ dataMitra }) {
 
                     <td className="px-4 py-4 flex items-center gap-2">
                       <ButtonEdit />
-                      <ButtonDelete />
+                      <ButtonDelete endpoint={`mitra/${data.uuid}`} />
                     </td>
                   </tr>
                 ))}
@@ -118,4 +158,4 @@ function mitra({ dataMitra }) {
   );
 }
 
-export default mitra;
+export default Mitra;

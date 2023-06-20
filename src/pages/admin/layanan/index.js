@@ -1,32 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "@/pages/layouts/AdminLayout";
 import Button from "@/components/Button";
 import ButtonEdit from "@/components/button/ButtonEdit";
 import ButtonDelete from "@/components/button/ButtonDelete";
 import axios from "@/pages/api/axios";
 import Image from "next/image";
+import Cookies from "js-cookie";
+import { useAppContext } from "@/context/AppContext";
 
-export async function getServerSideProps() {
-  try {
-    const responseDataLayanan = await axios.get("layanan");
-    const dataLayanan = responseDataLayanan.data.data;
+function Layanan() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [dataLayanan, setDataLayanan] = useState([]);
+  const [state, dispatch] = useAppContext();
 
-    return {
-      props: {
-        dataLayanan,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {
-        dataLayanan: [],
-      },
-    };
-  }
-}
+  useEffect(() => {
+    getDataLayanan();
+  }, []);
 
-function layanan({ dataLayanan }) {
+  useEffect(() => {
+    getDataLayanan();
+  }, [state.isReload]);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    // setFileName(file.name);
+    // Lakukan proses upload file disini
+    setImage(file);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = Cookies.get("token");
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("image", image);
+
+    try {
+      const response = await axios.post("layanan", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (response.status === 200) {
+        setTitle("");
+        setDescription("");
+        dispatch({ type: "SET_RELOAD", payload: !state.isReload });
+      }
+
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getDataLayanan = async () => {
+    try {
+      const response = await axios.get("layanan");
+      const dataLayanan = response.data.data;
+
+      setDataLayanan(dataLayanan);
+    } catch (error) {
+      console.log(error);
+      setDataLayanan([]);
+    }
+  };
+
   return (
     <AdminLayout>
       <section>
@@ -40,6 +84,7 @@ function layanan({ dataLayanan }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Gambar/Foto Layanan"
                 required
+                onChange={handleFileChange}
               />
               <input
                 type="text"
@@ -47,6 +92,8 @@ function layanan({ dataLayanan }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Judul Layanan (ex. Layanan Teknis)"
                 required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
               <input
                 type="text"
@@ -54,9 +101,13 @@ function layanan({ dataLayanan }) {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Deskripsi Layanan"
                 required
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
 
-              <Button className={"bg-primary-100 text-white"}>Tambah</Button>
+              <div onClick={handleSubmit}>
+                <Button className={"bg-primary-100 text-white"}>Tambah</Button>
+              </div>
             </div>
           </form>
         </div>
@@ -96,7 +147,7 @@ function layanan({ dataLayanan }) {
                       className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       <Image
-                        className="w-10 h-10 rounded-full"
+                        className="w-10 h-10 rounded-md"
                         src={data.image}
                         width={40}
                         height={40}
@@ -111,8 +162,8 @@ function layanan({ dataLayanan }) {
                     <td className="px-4 py-4">{data.deskripsi}</td>
                     <td className="px-4 py-4 flex items-center gap-2">
                       <ButtonEdit />
-                      <ButtonDelete />
-                    </td>{" "}
+                      <ButtonDelete endpoint={`layanan/${data.uuid}`} />
+                    </td>
                   </tr>
                 ))}
             </tbody>
@@ -123,4 +174,4 @@ function layanan({ dataLayanan }) {
   );
 }
 
-export default layanan;
+export default Layanan;
