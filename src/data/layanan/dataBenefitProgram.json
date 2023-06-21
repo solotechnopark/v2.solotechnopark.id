@@ -1,0 +1,53 @@
+{
+  "benefit": [
+    {
+      "title": "Basic & Applied",
+      "list": [
+        "Bimbingan dari mentor yang berpengalaman",
+        "Workshop praktek yang lengka",
+        "Seragam",
+        "Sepatu Safety",
+        "Kacamata Safety",
+        "Kurikulum Pembelajaran yang Relevan dengan Industri",
+        "Modul Pembelajaran",
+        "Pelatihan Softskill",
+        "Sertifikat Kompetensi untuk Kerja"
+      ]
+    },
+    {
+      "title": "Underwater Wet Welding",
+      "list": [
+        "Sertifikat Kompetensi",
+        "Bimbingan dari mentor yang berpengalaman",
+        "Workshop praktek dan kurikulum yang lengkap",
+        "Perlengkapan diklat",
+        "Perlengkapan K3 underwater"
+      ]
+    }
+  ],
+  "perusahaan": [
+    "REIKEN QUALITY TOOLS",
+    "PT SANTOSO TEKNINDO",
+    "PT TOTAL PRIME ENGINEERING",
+    "PT TRIMAS ANUGERAH SEJAHTERA",
+    "PT YAUP",
+    "PT YPTI",
+    "ZENITH ALLMART PRECISINDO",
+    "PT. ANUGRAH CIPTA MANDIRI",
+    "ATMI SOLO",
+    "PT. BIGGY CEMERLANG",
+    "Yamaha Group",
+    "PT Induktorindo Utama",
+    "Mobil ESEMKA Indonesia",
+    "PT. bengawan tex",
+    "PT. DUTA SARANA PERKASA",
+    "IWIPPT. KEMAS INDAH MAJU",
+    "KOMATSU INDONESIA",
+    "PT. Orang Tua Group",
+    "PT. RAPIGRA",
+    "PT. SASS",
+    "PT. SOLO MURNI",
+    "TIGER SASH",
+    "PT. TYFONTEX"
+  ]
+}
