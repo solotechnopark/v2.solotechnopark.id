@@ -129,7 +129,19 @@ html {
 .row-title-text {
   @apply head-4;
 }
+.row-content-text,
+.row-content-text ul,
+.row-content-text span,
+.row-content-text div {
+  /* @apply text-gray-600; */
+  color: rgb(75 85 99 /1) !important;
+}
 
-.row-content-text {
-  @apply text-gray-600;
+.bg-rounded-2 {
+  @apply bg-no-repeat bg-right-top bg-contain;
+  background-position: 100% -80px;
+}
+
+.profil-instruktur .swiper-wrapper {
+  @apply gap-5;
 }

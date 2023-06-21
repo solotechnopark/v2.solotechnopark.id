@@ -26,6 +26,7 @@ module.exports = {
         "contact-patern":
           "url('../../src/images/contact-patern.png'), linear-gradient(to bottom, #C40330, #740330)",
         "rounded-1": "url('../../src/images/bg-rounded-1.png')",
+        "rounded-2": "url('../../src/images/pojok-program.png')",
         // "body-1": "url('../../src/images/bg-stp-1.png')",
         // "body-2": "url('../../src/images/bg-inverse-3.1.png')",
         // "body-3": "url('../../src/images/Group-1240.png')",

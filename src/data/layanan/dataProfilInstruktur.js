@@ -1,12 +1,12 @@
-import ImageAgus from "../images/layanan/teknis/Agus-Wahyudi.png";
-import ImageAnton from "../images/layanan/teknis/Anton-Effendi.png";
-import ImageArief from "../images/layanan/teknis/Arief-Wibowo.png";
-import ImageEko from "../images/layanan/teknis/Eko-Anggoro.png";
-import ImageFarid from "../images/layanan/teknis/Farid-Mahendra.png";
-import ImageJarot from "../images/layanan/teknis/Jarot-Sutono.png";
-import ImageMulyanto from "../images/layanan/teknis/Mulyanto.png";
-import ImagePurnomo from "../images/layanan/teknis/Purnomo-Respati.png";
-import ImagePutra from "../images/layanan/teknis/Putra-Adi-Widrajat.png";
+import ImageAgus from "@/images/layanan/teknis/Agus-Wahyudi.png";
+import ImageAnton from "@/images/layanan/teknis/Anton-Effendi.png";
+import ImageArief from "@/images/layanan/teknis/Arief-Wibowo.png";
+import ImageEko from "@/images/layanan/teknis/Eko-Anggoro.png";
+import ImageFarid from "@/images/layanan/teknis/Farid-Mahendra.png";
+import ImageJarot from "@/images/layanan/teknis/Jarot-Sutono.png";
+import ImageMulyanto from "@/images/layanan/teknis/Mulyanto.png";
+import ImagePurnomo from "@/images/layanan/teknis/Purnomo-Respati.png";
+import ImagePutra from "@/images/layanan/teknis/Putra-Adi-Widrajat.png";
 
 const dataProfilInstruktur = [
   {
