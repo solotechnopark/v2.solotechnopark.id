@@ -177,7 +177,7 @@ export default function Profile() {
 
         <section className="">
           <div className="container pt-20 pb-10">
-            <div className="flex flex-wrap  justify-evenly items-center mb-10">
+            <div className="flex flex-wrap gap-5 justify-evenly items-center mb-10">
               {console.log(dataProfil)}
               {dataProfil &&
                 dataProfil[0].map((data, i) => (
@@ -192,12 +192,18 @@ export default function Profile() {
                   </div>
                 ))}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-evenly items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-evenly items-start">
               {dataProfil &&
                 dataProfil[1].map((data, i) => (
                   <div key={i} className="my-5 mx-5">
-                    <div className="w-72 rounded-3xl overflow-hidden pt-5 px-5 flex bg-gray-100 justify-center items-center mx-auto">
-                      <Image className="mx-auto" src={data.image} alt="check" />
+                    <div className="rounded-3xl overflow-hidden pt-5 px-5 flex bg-gray-100 justify-center items-center mx-auto">
+                      <Image
+                        className="mx-auto"
+                        src={data.image}
+                        width={288}
+                        height={320}
+                        alt="check"
+                      />
                     </div>
                     <div className="text-center my-5">
                       <h4 className="head-4">{data.nama}</h4>

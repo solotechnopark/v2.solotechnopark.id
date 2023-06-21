@@ -118,3 +118,18 @@ html {
 .bg-contact-patern {
   @apply bg-no-repeat bg-cover bg-center;
 }
+
+.faq-row {
+  @apply bg-gray-100 rounded-xl my-4;
+  border: none !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.row-title-text {
+  @apply head-4;
+}
+
+.row-content-text {
+  @apply text-gray-600;
+}

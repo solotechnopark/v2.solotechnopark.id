@@ -88,7 +88,7 @@ export default function LayananPendukung({ mitra, berita }) {
           <div className="container">
             <div className="h-[90vh] flex flex-col justify-center">
               <h1 className="head-1 mb-5 max-w-3xl text-white">
-                Layanan Pendukung di Kawasan Sains dan Teknologi Solo Technopark
+                Pendidikan & Pelatihan Dalam Rangka Menyiapkan SDM Unggul{" "}
               </h1>
               <Link href={"/kontak"}>
                 <Button className="bg-blue-600 text-white hover:opacity-50 hover:bg-primary-gradient-200">
@@ -108,7 +108,7 @@ export default function LayananPendukung({ mitra, berita }) {
         <section className="">
           <div className="container py-20">
             <h2 className="head-2 my-10 text-center max-w-3xl mx-auto">
-              Layanan Pendukung Kami
+              Program Pelatihan Kami
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-0">
