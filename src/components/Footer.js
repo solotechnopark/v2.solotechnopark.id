@@ -21,7 +21,7 @@ function Footer() {
               <div>
                 <ul className="list-inline">
                   <li className="list-inline-item">
-                    <Link target="_blank" href="https://www.facebook.com/solotechnopark">
+                    <Link target="_blank" href="https://www.instagram.com/solotechnopark_official/">
                       <FontAwesomeIcon
                         icon={faInstagram}
                         className="footer-icon smaller-icon"
@@ -30,7 +30,7 @@ function Footer() {
                     </Link>
                   </li>
                   <li className="list-inline-item">
-                    <Link target="_blank" href="https://www.instagram.com/solotechnopark/">
+                    <Link target="_blank" href="https://twitter.com/solotechnopark_">
                       <FontAwesomeIcon
                         icon={faTwitter}
                         className="footer-icon smaller-icon"
