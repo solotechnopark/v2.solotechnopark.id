@@ -31,11 +31,13 @@ export async function getServerSideProps() {
     const beritaResponse = await axios.get("berita/all?limit=4");
     const mitraResponse = await axios.get("mitra");
     const testimoniResponse = await axios.get("testimonial");
+    const layananResponse = await axios.get("layanan");
 
     const events = eventResponse.data.data;
     const berita = beritaResponse.data.data;
     const mitra = mitraResponse.data.data;
     const testimonials = testimoniResponse.data.data;
+    const layanan = layananResponse.data.data;
 
     return {
       props: {
@@ -43,6 +45,7 @@ export async function getServerSideProps() {
         berita,
         mitra,
         testimonials,
+        layanan,
       },
     };
   } catch (err) {
@@ -53,14 +56,18 @@ export async function getServerSideProps() {
         berita: [],
         mitra: [],
         testimonials: [],
+        layanan: [],
       },
     };
   }
 }
 
-export default function Home({ berita, mitra, events, testimonials }) {
+export default function Home({ berita, mitra, events, testimonials, layanan }) {
   const clusters = JSON.parse(dataCluster);
-  const services = JSON.parse(dataLayanan);
+  // const services = JSON.parse(dataLayanan);
+  const services = layanan;
+
+  console.log(layanan);
 
   useEffect(() => {
     Aos.init({
@@ -216,9 +223,9 @@ export default function Home({ berita, mitra, events, testimonials }) {
                       return (
                         <CardLayanan
                           key={i}
-                          id={data.id}
-                          src={data.foto}
-                          title={data.layanan}
+                          id={data.uuid}
+                          src={data.image}
+                          title={data.nama}
                           desc={data.deskripsi}
                           index={i}
                         />
@@ -372,7 +379,7 @@ export default function Home({ berita, mitra, events, testimonials }) {
             </div>
           </div>
         </section>
-        <ModalLayanan />
+        <ModalLayanan data={layanan} />
       </main>
       <Footer />
     </>

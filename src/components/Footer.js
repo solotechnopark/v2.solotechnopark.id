@@ -17,7 +17,7 @@ import {
 const dataSocialMedia = [
   {
     title: "instagram",
-    url: "https://www.facebook.com/solotechnopark",
+    url: "https://www.instagram.com/solotechnopark_official",
     icon: faInstagram,
   },
   {
@@ -42,8 +42,8 @@ const dataSocialMedia = [
   },
   {
     title: "twitter",
-    url: "https://www.youtube.com/channel/UCqtTWpV2tExmQ1pQQLILd2Q",
-    icon: faYoutube,
+    url: "https://twitter.com/solotechnopark_",
+    icon: faTwitter,
   },
 ];
 
@@ -54,105 +54,26 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 text-white">
           <div>
             <Image src={LogoSTP} alt="logo STP" />
+            {/* <h2 className="head-1 text-white underline">Contact Us</h2> */}
             <p className="my-5">
               Menuju kawasan Solo Technopark yang inovatif dan berdaya saing
               internasional.
             </p>
-            <div className="grid grid-cols-3 mt-20">
-              <div>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-<<<<<<< HEAD
-                    <Link target="_blank" href="https://www.instagram.com/solotechnopark_official/">
-=======
-                    <Link
-                      target="_blank"
-                      href="https://www.facebook.com/solotechnopark"
-                    >
->>>>>>> 4d5b950 (footer)
-                      <FontAwesomeIcon
-                        icon={faInstagram}
-                        className="footer-icon smaller-icon"
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </Link>
-                  </li>
-                  <li className="list-inline-item">
-<<<<<<< HEAD
-                    <Link target="_blank" href="https://twitter.com/solotechnopark_">
-=======
-                    <Link
-                      target="_blank"
-                      href="https://www.instagram.com/solotechnopark/"
-                    >
->>>>>>> 4d5b950 (footer)
-                      <FontAwesomeIcon
-                        icon={faTwitter}
-                        className="footer-icon smaller-icon"
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <Link
-                      target="_blank"
-                      href="https://www.facebook.com/solotechnopark.id"
-                    >
-                      <FontAwesomeIcon
-                        icon={faFacebook}
-                        className="footer-icon smaller-icon"
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </Link>
-                  </li>
-                  <li className="list-inline-item">
-                    <Link
-                      target="_blank"
-                      href="https://www.tiktok.com/@solotechnopark?lang=id-ID"
-                    >
-                      <FontAwesomeIcon
-                        icon={faTiktok}
-                        className="footer-icon smaller-icon"
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <Link
-                      target="_blank"
-                      href="https://www.linkedin.com/company/solo-technopark/"
-                    >
-                      <FontAwesomeIcon
-                        icon={faLinkedin}
-                        className="footer-icon smaller-icon"
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </Link>
-                  </li>
-                  <li className="list-inline-item">
-                    <Link
-                      target="_blank"
-                      href="https://www.youtube.com/channel/UCqtTWpV2tExmQ1pQQLILd2Q"
-                    >
-                      <FontAwesomeIcon
-                        icon={faYoutube}
-                        className="footer-icon smaller-icon"
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+            <div className="grid grid-cols-3 mt-16">
+              <ul className="list-inline grid grid-cols-3 gap-5">
+                {dataSocialMedia &&
+                  dataSocialMedia.map((data, i) => (
+                    <li key={i} className="list-inline-item">
+                      <Link target="_blank" href={data.url}>
+                        <FontAwesomeIcon
+                          icon={data.icon}
+                          className="footer-icon smaller-icon"
+                          style={{ width: "30px", height: "30px" }}
+                        />
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
             </div>
           </div>
 
