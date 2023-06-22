@@ -1,18 +1,85 @@
 [
   {
-    "title": "Apa Syarat Untuk Dapat Mengikuti Diklat?",
-    "content": "Usia Maksimal 24 tahun. Tidak buta warna. Bukan penderita ayan/epilepsi."
+    "title": "Apa saja jenis diklat yang bisa diikuti?",
+    "desc": "<p>Diklat APBN: Dibuka pada periode tertentu dan bebas biaya untuk seluruh warga indonesia</p>
+    <p>Diklat APBD: Dibuka pada periode tertentu dan bebas biaya untuk yang memiliki KTP Surakarta</p>
+    <p>Diklat Mandiri: Dibuka sepanjang tahun dan besaran biaya ditentukan sesuai dengan program yang diikuti</p>"
   },
   {
-    "title": "Bagaimana Sistem Pendidikan Diklat Solotechnopark?",
-    "content": "<p>Pendidikan pelatihan menggunakan sistem evaluasi dalam setiap tahap. Ada 3 tahapan yang harus di lalui peserta.</p>    <p>Tahap 1 merupakan pendidikan dasar teknik (Basic Mechanic).  Tahap 2 merupakan tahap lanjutan (Application Mechanic).  Tahap 3 merupakan tahap akhir. Peserta yang berhasil lulus berhak mendapatkan  Sertifikat Keahlian yang dikeluarkan oleh Solotechnopark.</p>"
+    "title": "Apa saja yang dipelajari ketika mengikuti diklat?",
+    "desc": "<p>Pelatihan hardskill sesuai dengan jurusan yang diambil</p>
+    <p>Belajar menggunakan berbagai jenis mesin manufaktur</p>
+    <p>Pelatihan softskill</p>"
   },
   {
-    "title": "Apakah Diklat ini hanya untuk warga Surakarta saja?",
-    "content": "Pada prinsipnya Diklat terbuka untuk umum baik dari wilayan Surakarta maupun dari seluruh wilayah di Indonesia. Namun untuk perserta di luar wilayah Surakarta harus ada surat rekomendasi/kerjasama dari Department atau Instansi terkait dari daerahnya (Contoh : Bappeda, dsb)"
+    "title": "Apakah peserta yang telah lulus diklat langsung disalurkan kerja ke perusahaan?",
+    "desc": "<p>Tahap 1 merupakan pendidikan dasar teknik (Basic). Dalam tahapan basic ini,para siswa diajarkan ilmu dasar yang meliputi Lathe Work,Bench Work,Grinding Work,Milling Work, dan Gambar Teknik.</p>
+    <p>Tahap 2 merupakan tahap lanjutan (Applied). Dalam tahapan lanjutan ( Applied ), para siswa diajarkan ke tahap selanjutnya yakni seperti Otomasi Manufaktur, Desain Manufaktur, dan Mekanik Manufaktur.</p>
+    <p>Tahap 3 merupakan tahap akhir (Advance).  Peserta yang berhasil lulus berhak mendapatkan Sertifikat Keahlian yang dikeluarkan oleh Solotechnopark.</p>"
   },
   {
-    "title": "Berapa biaya untuk mengikuti Diklat ?",
-    "content": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast"
+    "title": "Berapa lama diklat dilaksanakan?",
+    "desc": "<p>Secara umun diklat dilaksanakan minimal 6 bulan hingga tahap applied dan maksimal 9 bulan hingga tahap advanced</p>
+    <p>Apabila peserta mengikuti melalui program pemerintah maka durasi diklat didasarkan sesuai dengan kebijakan pemerintah</p>"
+  },
+  {
+    "title": "Berapa batas umur mengikuti diklat?",
+    "desc": "<p>Tidak ada batasan usia</p>
+    <p>Apabila ingin langsung mendapat rekomendasi penyaluran kerja minimal berusia 22 tahun</p>"
+  },
+  {
+    "title": "Apakah ada latar belakang pekerjaan/pendidikan tertentu untuk mengikuti diklat?",
+    "desc": "Minimal memiliki ijazah SLTA dan sederajat"
+  },
+  {
+    "title": "Apakah ada persyaratan fisik untuk mengikuti diklat?",
+    "desc": "<p>Tidak buta warna</p>
+    <p>Bukan penderita ayan/epilepsi</p>"
+  },
+  {
+    "title": "Dokumen apa saja yang harus dipersiapkan?",
+    "desc": "<p>Fotocopy KTP Calon Peserta</p>
+    <p>Fotocopy KTP Orangtua</p>
+    <p>Fotocopy KK</p>
+    <p>Fotocopy Ijasah</p>
+    <p>Fotocopy Transkrip Nilai</p>
+    <p>Surat Keterangan Sehat</p>
+    <p>Surat Pernyataan (Bermaterai) * Didapat saat registrasi offline</p>
+    <p>SKCK</p>
+    <p>Pas Foto 4X6</p>"
+  },
+  {
+    "title": "Apakah ada minimal nilai pada ijazah untuk mendaftar diklat?",
+    "desc": "Tidak ada"
+  },
+  {
+    "title": "Apakah dibutuhkan materai pada dokumen tertentu?",
+    "desc": "Ya, pada dokumen Surat Penyataan *Didapat saat registrasi offline"
+  },
+  {
+    "title": "Bagaimana alur pendaftaran diklat?",
+    "desc": "<p>Datang ke Pendaftaran STP</p>
+    <p>Scan QR Code di Ruang Pendaftaran</p>
+    <p>Mengisi Formulir Biodata Offline</p>
+    <p>Melengkapi Berkas Persyaratan</p>
+    <p>Tes Tulis</p>
+    <p>Tes Wawancara</p>"
+  },
+  {
+    "title": "Apakah bisa mendaftar untuk banyak jurusan diklat?",
+    "desc": "Tidak bisa"
+  },
+  {
+    "title": "Apakah warga di luar Kota Surakarta bisa mengikuti diklat?",
+    "desc": "Bisa"
+  },
+  {
+    "title": "Apakah ada kuota peserta diklat?",
+    "desc": "Ada. Jumlahnya ditentukan tergantung program dan kebijakan Solo Technopark"
+  },
+  {
+    "title": "Berapa biaya untuk pendaftaran diklat?",
+    "desc": "<p>Bervariasi tergantung program</p>
+    <p> Untuk lebih detail harap hubungi CP</p>"
   }
 ]
