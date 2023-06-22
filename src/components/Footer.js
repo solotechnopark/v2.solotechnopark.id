@@ -78,7 +78,7 @@ function Footer() {
       <div className="bg-white text-slate-600 text-center pt-5">
         <p> Copyright © 2023 Solo Technopark, All rights reserved.</p>
         <p className="text-sm mt-2">
-          Designed by MSIB Batch 2 | Developed by MISB Batch 3.
+          Deisgned and Developed by MSIB Batch 4.
         </p>
       </div>
     </footer>
