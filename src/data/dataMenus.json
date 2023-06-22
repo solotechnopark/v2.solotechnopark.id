@@ -23,13 +23,13 @@
       },
       {
         "menu_title": "Layanan Pengembangan Teknologi",
-        "menu_url": "/layanan/pengembangan",
+        "menu_url": "",
         "menu_target": ""
       },
       {
         "menu_title": "Layanan Inkubasi Bisnis",
-        "menu_url": "/layanan/inkubasibisnis",
-        "menu_target": ""
+        "menu_url": "https://incubator.solotechnopark.id",
+        "menu_target": "_blank"
       },
       {
         "menu_title": "Layanan Pendukung",
@@ -43,8 +43,8 @@
       },
       {
         "menu_title": "Layanan Infografis",
-        "menu_url": "/layanan/infografis",
-        "menu_target": ""
+        "menu_url": "https://sotopanaz.solotechnopark.id",
+        "menu_target": "_blank"
       }
     ]
   },

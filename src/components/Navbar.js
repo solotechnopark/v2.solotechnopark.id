@@ -86,7 +86,11 @@ function Navbar() {
                           key={i}
                           href={data.menu_url}
                           target={data.menu_target}
-                          className={`px-3  transition-all hover:bg-primary-100 hover:text-white py-2 rounded-lg`}
+                          className={`px-3  transition-all py-2 rounded-lg ${
+                            data.menu_url !== ""
+                              ? "hover:bg-primary-100 hover:text-white "
+                              : "hover:bg-gray-50 text-gray-300"
+                          }`}
                         >
                           {data.menu_title}
                         </Link>

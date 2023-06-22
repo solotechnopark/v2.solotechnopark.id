@@ -68,9 +68,14 @@ export default function LayananPendukung({ mitra, berita, testimoni }) {
               <h1 className="head-1 mb-5 max-w-3xl text-white">
                 Pendidikan & Pelatihan Dalam Rangka Menyiapkan SDM Unggul{" "}
               </h1>
-              <Link href={"/kontak"}>
+              <Link
+                href={
+                  "https://docs.google.com/forms/d/e/1FAIpQLSe5n7zk-RG2-tESLGzcDKKwLimXKU5HAkLkphECLkqXhD4adw/viewform"
+                }
+                target="_blank"
+              >
                 <Button className="bg-blue-600 text-white hover:opacity-50 hover:bg-primary-gradient-200">
-                  Hubungi Kami
+                  Pendaftaran
                 </Button>
               </Link>
             </div>
