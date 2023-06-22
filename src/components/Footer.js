@@ -18,6 +18,39 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import logoWhite from "../images/Logo-Technopark-Remake-Solo-1.webp";
 
+const dataSocialMedia = [
+  {
+    title: "instagram",
+    url: "https://www.instagram.com/solotechnopark_official",
+    icon: faInstagram,
+  },
+  {
+    title: "facebook",
+    url: "https://www.facebook.com/solotechnopark.id",
+    icon: faFacebook,
+  },
+  {
+    title: "tiktok",
+    url: "https://www.tiktok.com/@solotechnopark?lang=id-ID",
+    icon: faTiktok,
+  },
+  {
+    title: "linkedin",
+    url: "https://www.linkedin.com/company/solo-technopark/",
+    icon: faLinkedin,
+  },
+  {
+    title: "youtube",
+    url: "https://www.youtube.com/channel/UCqtTWpV2tExmQ1pQQLILd2Q",
+    icon: faYoutube,
+  },
+  {
+    title: "twitter",
+    url: "https://twitter.com/solotechnopark_",
+    icon: faTwitter,
+  },
+];
+
 function Footer() {
   return (
     <footer>
