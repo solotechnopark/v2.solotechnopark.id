@@ -69,8 +69,9 @@ function TambahEvent() {
           setTextButton("Tambah");
           router.push("/admin/event");
         }
+      } else {
+        window.alert("Judul wajib di isi");
       }
-      window.alert("Judul wajib di isi");
       setTextButton("Kirim Ulang");
     } catch (err) {
       console.log(err);

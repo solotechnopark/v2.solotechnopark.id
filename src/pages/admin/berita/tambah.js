@@ -52,7 +52,6 @@ function TambahBerita() {
     formData.append("encoded", text);
 
     try {
-      console.log(title);
       if (title !== "") {
         const response = await axios.post("berita", formData, {
           headers: {
@@ -65,8 +64,9 @@ function TambahBerita() {
           setTextButton("Tambah");
           router.push("/admin/berita");
         }
+      } else {
+        window.alert("Judul wajib di isi");
       }
-      window.alert("Judul wajib di isi");
       setTextButton("Kirim Ulang");
     } catch (err) {
       console.log(err);
