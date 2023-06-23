@@ -44,11 +44,8 @@ function TambahBerita() {
 
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("startDate", date.startDate);
-    formData.append("endDate", date.endDate);
-    formData.append("waktu", date.waktu);
     formData.append("location", date.tempat);
-    formData.append("kategori", kategori);
+    formData.append("category", kategori);
     formData.append("author", author);
     formData.append("tags", tags);
     formData.append("image", image);
