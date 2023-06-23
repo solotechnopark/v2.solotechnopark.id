@@ -47,12 +47,12 @@ function TambahBerita() {
     formData.append("startDate", date.startDate);
     formData.append("endDate", date.endDate);
     formData.append("waktu", date.waktu);
-    formData.append("tempat", date.tempat);
+    formData.append("location", date.tempat);
     formData.append("kategori", kategori);
     formData.append("author", author);
     formData.append("tags", tags);
     formData.append("image", image);
-    formData.append("paragraph", text);
+    formData.append("encoded", text);
 
     try {
       console.log(title);
