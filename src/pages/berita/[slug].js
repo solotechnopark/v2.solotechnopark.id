@@ -6,10 +6,10 @@ import dateIcon from "../../images/date.svg";
 import locationIcon from "../../images/location.svg";
 import timeIcon from "../../images/time.svg";
 import Image from "next/image";
-import sanitizeHtml from "sanitize-html";
 import SkeletonTitle from "@/components/skeleton/SkeletonTitle";
 import SkeletonImage from "@/components/skeleton/SkeletonImage";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   try {
@@ -37,9 +37,13 @@ export async function getServerSideProps(context) {
 }
 
 function BeritaDetail({ berita, url }) {
-  console.log(url);
   return (
     <>
+      <Head>
+        <meta name="keywords" content={berita.tags || "solo technopark"} />
+        <meta name="author" content={berita.author || "In'am"} />
+      </Head>
+
       <NextSeo
         title={berita.title}
         description={berita.encoded}
@@ -49,6 +53,8 @@ function BeritaDetail({ berita, url }) {
           title: `${berita.title} - solotechnopark`,
           description:
             "Pusat Inovasi dan Vokasi yang Memadukan Unsur Pengembangan Iptek, Kebutuhan Pasar, Industri dan Bisnis Untuk Penguatan Daya Saing Daerah.",
+          keywords: berita.tags,
+          author: berita.author,
           images: [
             {
               url: berita.foto,
@@ -138,12 +144,8 @@ function BeritaDetail({ berita, url }) {
               </div>
             </div>
 
-            <div className="content-article py-10">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: sanitizeHtml(berita.encoded),
-                }}
-              ></div>
+            <div className="content-article py-10 lg:px-36">
+              <div dangerouslySetInnerHTML={{ __html: berita.encoded }}></div>
             </div>
           </div>
         </section>
