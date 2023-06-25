@@ -67,8 +67,6 @@ export default function Home({ berita, mitra, events, testimonials, layanan }) {
   // const services = JSON.parse(dataLayanan);
   const services = layanan;
 
-  console.log(layanan);
-
   useEffect(() => {
     Aos.init({
       offset: 0,
@@ -80,33 +78,30 @@ export default function Home({ berita, mitra, events, testimonials, layanan }) {
   return (
     <>
       <NextSeo
-        title="Solo Technopark"
+        title="Home - Solo Technopark"
         description="Kawasan Inovatif dan Berdaya Saing International. Pusat Inovasi dan Vokasi yang Memadukan Unsur Pengembangan Iptek, Kebutuhan Pasar, Industri dan Bisnis Untuk Penguatan Daya Saing Daerah."
         canonical="https://solotechnopark.id/"
         openGraph={{
           url: "https://solotechnopark.id/",
-          title: "home | solo technopark",
+          title: "Home - solo technopark",
           description: "Kawasan Inovatif dan Berdaya Saing International.",
           images: [
             {
-              url: "https://solotechnopark.id/wp-content/uploads/2022/11/Template-Website-3-1536x827.jpg",
+              url: "/favicon.png",
               width: 800,
               height: 600,
               alt: "Profile Solo Technopark",
             },
           ],
-          site_name: "solotechnopark",
+          site_name: "Solo Technopark",
         }}
       />
 
-      <Head>
+      {/* <Head>
         <title>Home - Solotechnopark</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          href="https://solotechnopark.id/wp-content/uploads/2021/09/Solo-Tecno.png"
-        />
-      </Head>
+        <link rel="icon" href="/favicon.png" />
+      </Head> */}
 
       <header className="bg-header-1">
         <Navbar />
@@ -120,7 +115,7 @@ export default function Home({ berita, mitra, events, testimonials, layanan }) {
               Kebutuhan Pasar, Industri dan Bisnis Untuk Penguatan Daya Saing
               Daerah.
             </p>
-            <Link href={"/diklat"} target="_blank">
+            <Link href={"/layanan/pendukung"} target="_blank">
               <Button className="bg-gradient-to-b from-primary-100 to-primary-200 hover:from-primary-200 hover:to-primary-100 text-white hover:opacity-50">
                 Layanan Kami
               </Button>
