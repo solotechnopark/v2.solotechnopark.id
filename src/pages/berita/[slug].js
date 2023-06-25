@@ -10,6 +10,7 @@ import SkeletonTitle from "@/components/skeleton/SkeletonTitle";
 import SkeletonImage from "@/components/skeleton/SkeletonImage";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
+import { FaUserEdit } from "react-icons/fa";
 
 export async function getServerSideProps(context) {
   try {
@@ -94,7 +95,7 @@ function BeritaDetail({ berita, url }) {
 
                 {berita.title ? (
                   <h1 className="head-2 font-bold mt-10 mb-3">
-                    {berita.title}
+                    {berita.title}z
                   </h1>
                 ) : (
                   <SkeletonTitle />
@@ -119,6 +120,19 @@ function BeritaDetail({ berita, url }) {
                   </span>
                 )}
 
+                {berita.location && (
+                  <span className="flex items-center gap-2 h-5 mt-4">
+                    <Image
+                      className="mb-0 mr-1"
+                      src={locationIcon}
+                      alt={"date"}
+                    />
+                    <p className="text-gray-600 my-4 text-sm">
+                      {berita.location}
+                    </p>
+                  </span>
+                )}
+
                 {berita.createdAt && (
                   <span className="flex items-center gap-2 h-5 mt-4">
                     <Image
@@ -129,15 +143,6 @@ function BeritaDetail({ berita, url }) {
                     />
                     <p className="text-gray-600 my-4 text-sm">
                       {berita.createdAt}
-                    </p>
-                  </span>
-                )}
-
-                {berita.location && (
-                  <span className="flex items-center gap-2 h-5 mt-4">
-                    <Image className="mb-0" src={locationIcon} alt={"date"} />
-                    <p className="text-gray-600 my-4 text-sm">
-                      {berita.location}
                     </p>
                   </span>
                 )}
