@@ -72,7 +72,7 @@ function BeritaDetail({ berita, url }) {
       <main>
         <section className="mt-36">
           <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 border-b pb-16">
               {berita.image ? (
                 <div>
                   <div className="bg-gray-100 rounded-lg overflow-hidden">
