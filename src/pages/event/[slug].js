@@ -55,7 +55,7 @@ function EventDetail({ event }) {
               alt: "Event Solo Technopark",
             },
           ],
-          site_name: "solotechnopark",
+          site_name: "Solo Technopark",
         }}
       />
 
