@@ -69,6 +69,7 @@ export default function LayananPendukung({ mitra, berita, testimoni }) {
                 Pendidikan & Pelatihan Dalam Rangka Menyiapkan SDM Unggul{" "}
               </h1>
               <Link
+                className="inline-block"
                 href={
                   "https://docs.google.com/forms/d/e/1FAIpQLSe5n7zk-RG2-tESLGzcDKKwLimXKU5HAkLkphECLkqXhD4adw/viewform"
                 }
