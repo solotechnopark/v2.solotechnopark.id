@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import { NextSeo } from "next-seo";
 import dataLeadership from "@/data/dataLeadership.json";
 import dataProfilJSON from "@/data/dataProfil";
+import DefaultLayout from "../layouts";
 
 const dataDeskripsiProfil = {
   title: "Profil Solo Technopark",

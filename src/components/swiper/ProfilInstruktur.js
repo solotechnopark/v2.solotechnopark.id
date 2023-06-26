@@ -10,8 +10,6 @@ import Image from "next/image";
 // import required modules
 
 export default function ProfilInstruktur({ data }) {
-  console.log(data);
-
   return (
     <>
       <Swiper
