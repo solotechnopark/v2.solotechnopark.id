@@ -48,23 +48,22 @@ function BeritaDetail({ berita, url }) {
       <NextSeo
         title={berita.title}
         description={berita.encoded}
-        canonical={`https://dev.solotechnopark.id/berita/${berita.slug}`}
+        canonical={`https://solotechnopark.id/berita/${berita.slug}`}
         openGraph={{
-          url: `https://dev.solotechnopark.id/berita/${berita.slug}`,
-          title: `${berita.title} - solotechnopark`,
-          description:
-            "Pusat Inovasi dan Vokasi yang Memadukan Unsur Pengembangan Iptek, Kebutuhan Pasar, Industri dan Bisnis Untuk Penguatan Daya Saing Daerah.",
+          url: `https://solotechnopark.id/berita/${berita.slug}`,
+          title: `${berita.title} - Solo Technopark`,
+          description: berita.encoded,
           keywords: berita.tags,
           author: berita.author,
           images: [
             {
-              url: berita.foto,
+              url: berita.image,
               width: 800,
               height: 600,
               alt: "Event Solo Technopark",
             },
           ],
-          site_name: "solotechnopark",
+          site_name: "Berita Solo Technopark",
         }}
       />
 
@@ -73,7 +72,7 @@ function BeritaDetail({ berita, url }) {
       <main>
         <section className="mt-36">
           <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 border-b pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10 border-b pb-16">
               {berita.image ? (
                 <div>
                   <div className="bg-gray-100 rounded-lg overflow-hidden">
