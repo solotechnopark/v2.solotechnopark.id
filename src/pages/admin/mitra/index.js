@@ -72,7 +72,7 @@ function Mitra() {
               <input
                 type="file"
                 name="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Gambar Mitra"
                 required
                 onChange={handleFileChange}
@@ -80,7 +80,7 @@ function Mitra() {
               <input
                 type="text"
                 name="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Nama Mitra"
                 required
                 value={title}
@@ -99,8 +99,8 @@ function Mitra() {
         <h2 className="head-4">Daftar Mitra</h2>
 
         <div className="relative overflow-x-auto mt-2">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500 ">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="px-4 py-3">
                   No.
@@ -121,7 +121,7 @@ function Mitra() {
                 dataMitra.map((data, i) => (
                   <tr
                     key={i}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    className="bg-white border-b hover:bg-gray-50 "
                   >
                     <td className="pl-4">{i + 1}.</td>
                     <th

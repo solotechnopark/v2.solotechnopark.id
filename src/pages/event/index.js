@@ -105,7 +105,7 @@ function Event() {
         </section> */}
 
         <section>
-          <div className="container my-20 mt-36">
+          <div className="container my-20 mg-20 lg:mt-36">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               {event.length > 0
                 ? event.map((data, i) => (

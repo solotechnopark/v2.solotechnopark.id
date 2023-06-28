@@ -67,21 +67,19 @@ function Sidebar() {
     >
       <aside
         id="logo-sidebar"
-        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform sm:translate-x-0 bg-white border-r border-gray-200  dark:bg-gray-800 dark:border-gray-700 
-      
-        `}
+        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform sm:translate-x-0 bg-white border-r border-gray-200`}
         aria-label="Sidebar"
       >
         {/* ${
           state.isOpenSidebar ? "" : "-translate-x-full"
         } */}
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-white">
           <ul className="space-y-1 font-medium">
             {navigations.map((data, i) => (
               <li key={i}>
                 <Link
                   href={data.path}
-                  className={`flex gap-5 px-4 py-2 items-center transition-all rounded-lg text-sm capitalize text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white ${
+                  className={`flex gap-5 px-4 py-2 items-center transition-all rounded-lg text-sm capitalize text-gray-700 hover:bg-gray-100 ${
                     currentPage === data.title
                       ? "bg-gray-100 text-primary-100"
                       : ""

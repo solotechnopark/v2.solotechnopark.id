@@ -7,7 +7,7 @@ function AdminLayout({ children }) {
     <>
       <NavbarAdmin />
       <Sidebar />
-      <main className="p-4 sm:ml-64 mt-20  dark:bg-gray-700 dark:text-white">
+      <main className="p-4 sm:ml-64 mt-20 ">
         {children}
       </main>{" "}
     </>

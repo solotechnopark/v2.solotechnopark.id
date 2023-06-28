@@ -18,14 +18,11 @@ function TambahBerita() {
   const kategoriBerita = dataCategory;
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
-  const [kategori, setKategori] = useState("");
+  const [kategori, setKategori] = useState(""); 
   const [author, setAuthor] = useState("");
   const [tags, setTags] = useState("");
   const [image, setImage] = useState("");
   const [date, setDate] = useState({
-    startDate: "",
-    endDate: "",
-    waktu: "",
     tempat: "",
   });
 
@@ -86,7 +83,7 @@ function TambahBerita() {
               <input
                 type="text"
                 name="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Judul Berita"
                 required
                 value={title}
@@ -96,7 +93,7 @@ function TambahBerita() {
               <input
                 type="text"
                 name="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Tags (ex. solotechnopark, solo, inkubator)"
                 required
                 value={tags}
@@ -105,7 +102,7 @@ function TambahBerita() {
               <input
                 type="text"
                 name="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Author"
                 required
                 value={author}
@@ -116,59 +113,25 @@ function TambahBerita() {
               <input
                 type="file"
                 name="name"
-                className="mt-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="mt-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Banner Berita"
                 required
                 onChange={handleFileChange}
               />
-              <div>
-                <label className="text-sm text-gray-600">Start Date</label>
-                <input
-                  type="date"
-                  name="name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                  required
-                  placeholder="start date"
-                  value={date.startDate}
-                  onChange={(e) =>
-                    setDate({ ...date, startDate: e.target.value })
-                  }
-                />
-              </div>
-              <div>
-                <label className="text-sm text-gray-600">End Date</label>
-                <input
-                  type="date"
-                  name="name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="Deskripsi Singkat Berita"
-                  required
-                  value={date.endDate}
-                  onChange={(e) =>
-                    setDate({ ...date, endDate: e.target.value })
-                  }
-                />
-              </div>
+    
+          
               <input
                 type="text"
                 name="tempat"
-                className="mt-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="mt-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 required
                 placeholder="Tempat pelaksanaan"
                 value={date.tempat}
                 onChange={(e) => setDate({ ...date, tempat: e.target.value })}
               />
-              <input
-                type="time"
-                name="tempat"
-                className="mt-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                required
-                placeholder="Waktu pelaksanaan"
-                value={date.waktu}
-                onChange={(e) => setDate({ ...date, waktu: e.target.value })}
-              />
+           
               <select
-                className="mt-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="mt-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 value={kategori}
                 onChange={(e) => setKategori(e.target.value)}
               >
