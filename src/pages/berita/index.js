@@ -70,7 +70,7 @@ function Berita() {
 
       <main>
         <Navbar />
-        <section className="mt-36">
+        <section className="mt-10 lg:mt-32">
           <div className="container pt-10 pb-20">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-stretch gap-5">
               {berita.length > 0

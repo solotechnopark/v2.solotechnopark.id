@@ -62,7 +62,7 @@ function EventDetail({ event }) {
       <Navbar />
 
       <main>
-        <section className="mt-36">
+        <section className="mt-20 lg:mt-36">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               {event.foto ? (

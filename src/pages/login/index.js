@@ -61,11 +61,11 @@ function Login() {
   };
 
   return (
-    <section className="gradient-form h-[100vh] bg-neutral-100 dark:bg-neutral-700">
+    <section className="gradient-form h-[100vh] bg-neutral-100">
       <div className="container h-full p-10">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+        <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800">
           <div className="w-full max-w-sm">
-            <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800 p-5">
+            <div className="block rounded-lg bg-white shadow-lg p-5">
               <div className="my-5">
                 <Image
                   className="mx-auto mb-10"

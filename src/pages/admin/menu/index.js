@@ -15,18 +15,18 @@ function menu() {
               <input
                 type="text"
                 name="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Nama Menu"
                 required
               />
               <input
                 type="text"
                 name="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Alamat Menu"
                 required
               />
-              <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+              <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 <option>-- Ingin diletakan dimana ? --</option>
                 <option>Utama</option>
                 <option>Layanan</option>
@@ -42,8 +42,8 @@ function menu() {
         <h2 className="head-4">Daftar Menu</h2>
 
         <div className="relative overflow-x-auto mt-2">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="px-4 py-3">
                   No.
@@ -60,11 +60,11 @@ function menu() {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-white border-b hover:bg-gray-50">
                 <td>1.</td>
                 <th
                   scope="row"
-                  className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                  className="flex items-center px-4 py-4 text-gray-900 whitespace-nowrap"
                 >
                   {/* <Image
                       className="w-10 h-10 rounded-full"

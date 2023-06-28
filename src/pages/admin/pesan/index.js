@@ -41,8 +41,8 @@ function Pesan() {
         <h2 className="head-4">Daftar Pesan</h2>
 
         <div className="relative overflow-x-auto mt-2">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="px-4 py-3">
                   No.
@@ -72,7 +72,7 @@ function Pesan() {
                 dataPesan.map((data, i) => (
                   <tr
                     key={i}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    className="bg-white border-b hover:bg-gray-50 "
                   >
                     <td className="px-4 py-4">
                       {data.tanggal} <br />
@@ -84,7 +84,7 @@ function Pesan() {
                     </td>
                     <td
                       scope="row"
-                      className="px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                      className="px-4 py-4 text-gray-900 whitespace-nowrap"
                     >
                       <div className="pl-3">
                         <div className="text-base font-semibold capitalize">

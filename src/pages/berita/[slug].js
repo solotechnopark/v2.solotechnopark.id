@@ -70,7 +70,7 @@ function BeritaDetail({ berita, url }) {
       <Navbar />
 
       <main>
-        <section className="mt-36">
+        <section className="mt-24 lg:mt-36">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10 border-b pb-16">
               {berita.image ? (
