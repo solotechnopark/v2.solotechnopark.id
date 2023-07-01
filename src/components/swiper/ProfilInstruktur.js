@@ -36,7 +36,7 @@ export default function ProfilInstruktur({ data }) {
                 {item.kategori}
               </div>
               <div className="bg-white mt-5 px-5 rounded-2xl text-center py-10">
-                <div className="w-40 h-40 bg-primary-gradient-100 rounded-full mx-auto flex justify-center items-center mb-10">
+                <div className="w-40 h-40 overflow-hidden bg-primary-gradient-100 rounded-full mx-auto flex justify-center items-center mb-10">
                   <Image
                     src={item.image}
                     width={160}

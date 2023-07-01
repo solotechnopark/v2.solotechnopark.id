@@ -11,27 +11,25 @@ import ProfilInstruktur from "@/components/swiper/ProfilInstruktur";
 
 const dataDeskripsiProfil = {
   title: "MSIB #4 Solo",
-  paragraph: [
-    "The IT Strategic Team at Solo Technopark is a dedicated group of IT professionals who play a crucial role in shaping the technological landscape of the organization. Comprising experts in various domains of information technology, the team works tirelessly to drive innovation, enhance digital capabilities, and ensure the smooth functioning of IT systems and infrastructure within the technopark.",
-  ],
+  paragraph: "The IT Strategic Team at Solo Technopark is a dedicated group of IT professionals who play a crucial role in shaping the technological landscape of the organization. Comprising experts in various domains of information technology, the team works tirelessly to drive innovation, enhance digital capabilities, and ensure the smooth functioning of IT systems and infrastructure within the technopark.",
 };
 
 const teamMembers = [
     {
-        name: "Inam Fallahudin",
-        photo: ImageInam,
+      kategori: "Inam Fallahudin",
+      image: ImageInam,
+      peran: "Web Developer"
     },
-  {
-    name: "Hasan Al Banna",
-    photo: ImageBanna,
-  },
+    {
+      kategori: "Hasan Al Banna",
+      image: ImageBanna,
+      peran: "Cyber Security"
+    },
   // Add more team members here...
 ];
 
-export default function Profile() {
+export default function ProfileMSIB() {
   const dataProfil = JSON.parse(dataProfilJSON);
-
-  console.log(teamMembers);
 
   return (
     <>
@@ -41,17 +39,17 @@ export default function Profile() {
         canonical="https://solotechnopark.id/"
         openGraph={{
           url: "https://solotechnopark.id/",
-          title: "MSIB #4 - solo technopark",
+          title: "Home - solo technopark",
           description: "Kawasan Inovatif dan Berdaya Saing International.",
           images: [
             {
-              url: "https://solotechnopark.id/wp-content/uploads/2022/11/Template-Website-3-1536x827.jpg",
+              url: "/favicon.png",
               width: 800,
               height: 600,
-              alt: "Profile Solo Technopark",
+              alt: "MSIB Solo Technopark",
             },
           ],
-          site_name: "profil - solotechnopark",
+          site_name: "MSIB#4 - Solo Technopark",
         }}
       />
 
@@ -66,41 +64,22 @@ export default function Profile() {
       </Head>
       <Navbar />
       <header className="mt-20 pt-16 bg-flower-1">
-        <div className="container lg:h-[85vh] pb-20 grid lg:grid-cols-12 gap-5 lg:gap-10 items-center">
-          <div className="mx-auto flex flex-col justify-center items-start lg:col-span-5 text-white">
+        <div className="container lg:h-[85vh] pb-20 grid gap-5 lg:gap-10 items-center">
+          <div className="mx-auto flex flex-col justify-center items-start text-white">
             <h1 className="capitalize head-1 my-5 leading-[3.5rem]">
               MSIB #4 <br /> IT Strategic Team Solo Technopark
             </h1>
-            <ul>
-              {dataDeskripsiProfil &&
-                dataDeskripsiProfil.paragraph.map((data, i) => (
-                  <li key={i} className="paragraph text-white">
-                    {data}
-                  </li>
-                ))}
-            </ul>
+            <p>{dataDeskripsiProfil && dataDeskripsiProfil.paragraph}</p>
           </div>
         </div>
       </header>
 
       <section className={styles.teamSection}>
         <div className="container">
-          <h2 className={styles.teamSectionTitle}>IT Strategic Team Members</h2>
-          <div className={styles.teamGrid}>
-            {teamMembers.map((member, index) => (
-              <div key={index} className={styles.teamMember}>
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  className={styles.teamMemberPhoto}
-                  width={200}
-                  height={200}
-                />
-                <h3 className={styles.teamMemberName}>{member.name}</h3>
-              </div>
-              
-              ))}
-          </div>
+           <h2 className="head-2 my-10 text-center max-w-3xl mx-auto">
+              IT Strategic Team Members
+           </h2>
+          <ProfilInstruktur data={teamMembers} />
         </div>
       </section>
 
