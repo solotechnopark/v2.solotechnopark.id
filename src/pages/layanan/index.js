@@ -38,7 +38,7 @@ export default function LayananPendukung({ mitra, berita, testimoni }) {
           description: "Kawasan Inovatif dan Berdaya Saing International.",
           images: [
             {
-              url: "https://solotechnopark.id/wp-content/uploads/2022/11/Template-Website-3-1536x827.jpg",
+              url: "/favicon.png",
               width: 800,
               height: 600,
               alt: "Profile Solo Technopark",
