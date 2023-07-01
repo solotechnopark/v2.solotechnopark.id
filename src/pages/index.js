@@ -22,7 +22,6 @@ import CardSkeleton from "@/components/cards/CardSkeleton";
 import { NextSeo } from "next-seo";
 import Aos from "aos";
 import dataCluster from "@/data/dataCluster";
-import dataLayanan from "@/data/dataLayanan";
 import ModalLayanan from "@/components/modal/ModalLayanan";
 
 export async function getServerSideProps() {

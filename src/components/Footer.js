@@ -183,7 +183,7 @@ function Footer() {
       <p className="bg-white text-black text-center py-5">
       Copyright © 2023 Solo Technopark, All rights reserved.
         <br /> Designed and Developed by{" "}
-        <Link href={"/"} className="text-secondary-200">
+        <Link href={"/msib"} className="text-secondary-200">
         MSIB Batch 4.
         </Link>
       </p>
