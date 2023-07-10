@@ -15,6 +15,7 @@ const intialState = {
     value: false,
   },
   isReload: false,
+  isEdit: false,
 };
 
 const reducer = (state, action) => {
@@ -30,6 +31,8 @@ const reducer = (state, action) => {
       return { ...state, isModal: action.payload };
     case "SET_RELOAD":
       return { ...state, isReload: action.payload };
+    case "SET_EDIT":
+      return { ...state, isEdit: action.payload };
     default:
       throw new Error();
   }

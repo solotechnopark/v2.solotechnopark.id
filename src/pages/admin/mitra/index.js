@@ -7,6 +7,7 @@ import axios from "@/pages/api/axios";
 import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Cookies from "js-cookie";
+import EditMitra from "@/components/modal/EditMitra";
 
 function Mitra() {
   const [state, dispatch] = useAppContext();
@@ -64,6 +65,9 @@ function Mitra() {
 
   return (
     <AdminLayout>
+
+      <EditMitra/>
+
       <section>
         <div className="border p-5 rounded-lg mb-5">
           <h2 className="head-4">Tambah Mitra</h2>
@@ -145,7 +149,7 @@ function Mitra() {
                     {/* <td className="px-4 py-4">{data.logo}</td> */}
 
                     <td className="px-4 py-4 flex items-center gap-2">
-                      <ButtonEdit />
+                      <ButtonEdit id={data.uuid} />
                       <ButtonDelete endpoint={`mitra/${data.uuid}`} />
                     </td>
                   </tr>

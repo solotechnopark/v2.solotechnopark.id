@@ -7,6 +7,7 @@ import axios from "@/pages/api/axios";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import { useAppContext } from "@/context/AppContext";
+import EditLayanan from "@/components/modal/EditLayanan";
 
 function Layanan() {
   const [title, setTitle] = useState("");
@@ -73,6 +74,9 @@ function Layanan() {
 
   return (
     <AdminLayout>
+
+    <EditLayanan />
+
       <section>
         <div className="border p-5 rounded-lg mb-5">
           <h2 className="head-4">Tambah Layanan</h2>
@@ -161,7 +165,7 @@ function Layanan() {
                     </td>
                     <td className="px-4 py-4">{data.deskripsi}</td>
                     <td className="px-4 py-4 flex items-center gap-2">
-                      <ButtonEdit />
+                      <ButtonEdit id={data.uuid} />
                       <ButtonDelete endpoint={`layanan/${data.uuid}`} />
                     </td>
                   </tr>
