@@ -98,7 +98,7 @@ function Footer() {
                   href="https://www.instagram.com/solotechnoincubator/"
                   className="text-white hover:text-gray-300"
                 >
-                  Instagram{" "}
+                  Instagram
                 </Link>
               </div>
               <div className="flex mb-2 items-center">
@@ -111,7 +111,7 @@ function Footer() {
                   href="https://www.tiktok.com/@solotechnoincubator?lang=id-ID"
                   className="text-white hover:text-gray-300"
                 >
-                  Tiktok{" "}
+                  Tiktok
                 </Link>
               </div>
               <div className="flex mb-2 items-center">
@@ -124,7 +124,7 @@ function Footer() {
                   href="https://www.youtube.com/channel/UCqtTWpV2tExmQ1pQQLILd2Q"
                   className="text-white hover:text-gray-300"
                 >
-                  Youtube{" "}
+                  Youtube
                 </Link>
               </div>
               <div className="flex mb-2 items-center">
@@ -137,7 +137,7 @@ function Footer() {
                   href="https://www.linkedin.com/company/solo-technopark/"
                   className="text-white hover:text-gray-300"
                 >
-                  LinkedIn{" "}
+                  LinkedIn
                 </Link>
               </div>
             </div>
@@ -157,7 +157,8 @@ function Footer() {
             </div>
             <div className="flex mb-2 items-center">
               <AiFillPhone className="mr-3 text-white" />
-              <p className="text-white">0857-4151-5573</p>
+              {/* <p className="text-white">0857-4151-5573</p> */}
+              <p className="text-white">(+62)271666628</p>
             </div>
             <div className="flex mb-2 items-center">
               <AiOutlineMail className="mr-3 text-white" />
@@ -182,7 +183,7 @@ function Footer() {
       </div>
       <p className="bg-white text-black text-center py-5">
       Copyright © 2023 Solo Technopark, All rights reserved.
-        <br /> Designed and Developed by{" "}
+        <br /> Designed and Developed by
         <Link href={"/msib"} className="text-secondary-200">
         MSIB Batch 4.
         </Link>

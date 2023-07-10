@@ -2,8 +2,8 @@ import React from "react";
 import Modal from "../Modal";
 import { axiosPrivate } from "@/pages/api/axios";
 
-function EditMitra({ id }) {
-  const getOldData = async (req, res) => {
+function EditLayanan({ id }) {
+  const getOldDataLayanan = async (req, res) => {
     try {
       const response = await axiosPrivate.get('')
     } catch (err) {
@@ -14,7 +14,7 @@ function EditMitra({ id }) {
   return (
     <Modal>
       <h3 className="mb-4 text-xl font-medium text-gray-900 ">
-        Edit data mitra
+        Edit data Layanan
       </h3>
       <form className="space-y-6" action="#">
         <div>
@@ -40,12 +40,29 @@ function EditMitra({ id }) {
             htmlFor="name"
             className="block mb-2 text-sm font-medium text-gray-900  capitalize"
           >
-            Nama Mitra
+            Judul Layanan
           </label>
           <input
             type="text"
             name="name"
             id="name"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
+            placeholder="Enter Category Name"
+            required
+            // value={categoryName}
+            // onChange={(e) => setCategoryName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="name"
+            className="block mb-2 text-sm font-medium text-gray-900  capitalize"
+          >
+            Deskripsi Layanan
+          </label>
+          <textarea
+            type="text"
+            name="name"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
             placeholder="Enter Category Name"
             required
@@ -60,11 +77,11 @@ function EditMitra({ id }) {
           // onClick={handleSubmit}
         >
           {/* {loading ? "Loading ..." : "Edit Category Now"} */}
-          Edit Mitra
+          Edit Layanan
         </button>
       </form>
     </Modal>
   );
 }
 
-export default EditMitra;
+export default EditLayanan;
