@@ -160,10 +160,10 @@ function Footer() {
               {/* <p className="text-white">0857-4151-5573</p> */}
               <p className="text-white">(+62)271666628</p>
             </div>
-            <div className="flex mb-2 items-center">
+            <Link href="info@solotechnopark.id/?subject=Tanya%20Produk&body=Saya%20Tertarik%20dengan%20Layanan%20Anda" className="flex mb-2 items-center">
               <AiOutlineMail className="mr-3 text-white" />
-              <p className="text-white">info@solotechnoincubator.id</p>
-            </div>
+              <p className="text-white">info@solotechnopark.id</p>
+            </Link>
           </div>
           <div className="w-full lg:w-1/3 px-4 mt-10 lg:mt-0">
             <h2 className="font-bold text-white mb-5">Find Us</h2>
